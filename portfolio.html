@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mein Lernportfolio</title>
+
+    <style>
+        body {
+            background-color: #fff8fb;
+            color: #333333;
+            font-family: Arial;
+            margin: 30px;
+        }
+
+        h1 {
+            color: #963b68;
+        }
+
+        h2 {
+            color: #963b68;
+        }
+
+        h3 {
+            color: #b35b86;
+        }
+
+        a {
+            color: #963b68;
+        }
+
+        details {
+            background-color: #fbe5ef;
+            padding: 15px;
+            margin-bottom: 12px;
+        }
+
+        summary {
+            color: #853b60;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- TITEL -->
+
+    <h1>Mein Lernportfolio</h1>
+
+    <h2>Web-Programmierung</h2>
+
+    <p>DHBW Mannheim – Wintersemester 2026</p>
+
+    <p>
+        In diesem Portfolio dokumentiere ich
+        die Inhalte der Vorlesungen,
+        meine praktischen Übungen und
+        meine gewonnenen Erkenntnisse.
+    </p>
+
+    <hr>
+
+    <!-- INHALTSVERZEICHNIS -->
+
+    <h2>Inhaltsverzeichnis</h2>
+
+
+    <!-- EINLEITUNG -->
+
+    <details>
+        <summary>Einleitung</summary>
+
+        <h3>Einleitung</h3>
+
+        <p>
+            Dieses Portfolio gibt einen Überblick
+            über meine Lernfortschritte im Modul
+            Web-Programmierung.
+        </p>
+
+        <p>
+            Die einzelnen Vorlesungen werden
+            zusammengefasst und durch praktische
+            Beispiele ergänzt.
+        </p>
+    </details>
+    
+<!-- Vorlesung 1 -->
+
+<details>
+    <summary>Vorlesung 1 – Einführung in dynamische Webanwendungen und JavaScript</summary>
+
+    <h3>1. Deployment: Installation oder Web-Anwendung</h3>
+
+    <p>
+        Eine fertig entwickelte Anwendung (z. B. ein Java-Programm
+        mit Swing-GUI) muss zu den Anwendern gelangen.
+        Es gibt zwei Wege:
+    </p>
+
+    <ul>
+        <li>
+            <b>Installation (CD, Download):</b>
+            Die Software muss auf jedem Rechner installiert
+            und aktualisiert werden.
+        </li>
+
+        <li>
+            <b>Web-Anwendung:</b>
+            Die Anwendung läuft über den Browser und wird
+            zentral bereitgestellt.
+        </li>
+    </ul>
+
+
+    <h3>2. Software-Architektur von Webanwendungen</h3>
+
+    <p>
+        Grundlage ist das <b>Client-Server-Modell</b>:
+        Der Webclient (Browser) fordert Dokumente vom
+        Webserver an und stellt sie dar.
+        Je nachdem, wo die Programmlogik liegt,
+        unterscheidet man drei Varianten:
+    </p>
+
+    <ul>
+        <li>
+            <b>Komplett clientseitig (Rich/Thick Client):</b>
+            Der Server liefert die Webseite und eine
+            Java-Anwendung (.jar), die per Java Web Start
+            auf dem Client läuft.
+            Die gesamte Logik liegt beim Client.
+        </li>
+
+        <li>
+            <b>Komplett serverseitig:</b>
+            Serverprogramme (Java Servlets, CGI, PHP)
+            erzeugen die HTML-Seiten.
+            Beispiel Suchmaschine: Es ist unmöglich,
+            für jeden Suchbegriff fertige HTML-Dokumente
+            vorzuhalten. Die Informationen liegen in einer
+            Datenbank, ein Serverskript fragt sie ab und
+            generiert daraus ein HTML-Dokument.
+        </li>
+
+        <li>
+            <b>Kombination aus beidem:</b>
+            Der Server liefert statische oder dynamisch
+            erzeugte Seiten (PHP, Java EE, CGI; angebunden
+            sind Datenbanken und externe Systeme).
+            Im Browser verändert JavaScript das Dokument
+            über das <b>Document Object Model (DOM)</b>,
+            das dem angezeigten Bild des Browsers entspricht.
+        </li>
+    </ul>
+
+    <p>
+        <b>Typische Aufgaben von clientseitigem JavaScript:</b>
+        Grafik-Animationen, Formularanpassungen,
+        Plausibilitätschecks, lokale Dialoge,
+        Zugriff auf den lokalen Rechner und
+        asynchrone Interaktivität.
+    </p>
+
+    <p>
+        Beispiel: Die Suchvorschläge von Google während
+        der Eingabe entstehen durch JavaScript im Browser.
+    </p>
+
+    <p>
+        <b>Wichtig:</b>
+        Java und JavaScript sind zwei eigenständige Sprachen.
+        JavaScript lässt sich auch auf dem Server einsetzen,
+        hat sich dort laut Vorlesungsmaterial aber nicht
+        wirklich durchgesetzt. Serverseitig üblich sind
+        PHP, Perl und Java.
+    </p>
+
+
+    <h3>3. Übersetzte, interpretierte und Skriptsprachen</h3>
+
+    <h4>Übersetzung (Compiler)</h4>
+
+    <ul>
+        <li>
+            Ein Übersetzer wandelt jedes korrekte Programm
+            der Quellsprache in ein gleichbedeutendes der
+            Zielsprache um, meist Maschinencode einer CPU
+            oder Bytecode einer abstrakten Maschine (JVM).
+        </li>
+
+        <li>
+            Übersetzte Sprachen haben eine stark ausgeprägte
+            <b>statische Semantik</b>:
+            Typ- und Bindungsregeln werden geprüft,
+            viele Fehler werden schon vor der Ausführung gefunden.
+        </li>
+    </ul>
+
+
+    <h4>Interpretation</h4>
+
+    <ul>
+        <li>
+            Ein Interpretierer liest ein Programm und führt
+            es direkt aus. Typ- und Bindungsregeln werden
+            erst zur Laufzeit geprüft, nicht ausgeführte
+            Programmteile bleiben ungeprüft.
+        </li>
+
+        <li>
+            Manche Interpretierer (z. B. für PHP und JavaScript)
+            erzeugen vorab eine interne Repräsentation und
+            prüfen so Struktur und einen Teil der Regeln
+            vor der Ausführung.
+        </li>
+
+        <li>
+            Vorteil: Interpretierer lassen sich in andere
+            Software, z. B. Browser, integrieren.
+            Nachteil: Die Ausführung kann deutlich langsamer
+            sein als bei Maschinencode.
+        </li>
+    </ul>
+
+
+    <h4>Skriptsprachen</h4>
+
+    <ul>
+        <li>
+            <b>Scripting</b> heißt, Kommandos für eine kleine,
+            wiederverwendbare Aufgabe zusammenzusetzen
+            und vorhandene Funktionen zu verknüpfen.
+            Textverarbeitung sowie Ein- und Ausgabe sind wichtig.
+        </li>
+
+        <li>
+            Eigenschaften: einfache Sprache mit wenigen
+            Konstrukten und Regeln, kurze Programme,
+            <b>dynamische Typprüfung</b>,
+            ohne vorherige Übersetzung ausführbar,
+            leicht erlernbar.
+            Man verzichtet dafür auf die Sicherheit
+            prüfbarer Regeln.
+        </li>
+
+        <li>
+            Herkunft: Kommandosprachen von Betriebssystemen.
+            Sprachstile: imperativ und objektorientiert.
+        </li>
+
+        <li>
+            Beispiele: PHP, Perl, JavaScript, Python, Ruby.
+        </li>
+    </ul>
+
+
+    <h3>4. JavaScript</h3>
+
+    <ul>
+        <li>
+            Relativ einfache Skriptsprache, speziell
+            für HTML entwickelt und als Erweiterung
+            von HTML gedacht.
+        </li>
+
+        <li>
+            Der Code steht im script-Tag direkt im HTML,
+            wird zusammen mit dem HTML per HTTP vom
+            Webserver in den Browser geladen und
+            dort interpretiert.
+        </li>
+
+        <li>
+            Die Programmiersprache im Web und Basis
+            für dynamisches HTML (DHTML) und Web 2.0.
+        </li>
+    </ul>
+
+
+    <h4>JavaScript einbinden und ausführen</h4>
+
+    <pre>
+&lt;script type="text/javascript"&gt;
+  alert("Hallo Welt! Das ist JavaScript.");
+&lt;/script&gt;
+    </pre>
+
+    <p>
+        alert() zeigt ein Hinweisfenster an.
+        Der Code wird beim Laden des Dokuments
+        sofort ausgeführt.
+        Auch Berechnungen sind möglich:
+    </p>
+
+    <pre>
+alert(17 + 5 * 3);
+    </pre>
+
+    <p>
+        Das Ergebnis ist 32 (Punkt vor Strich).
+        Ohne Anführungszeichen wird gerechnet,
+        mit Anführungszeichen würde der Text
+        ausgegeben.
+    </p>
+
+
+    <h4>Auf Benutzereingaben reagieren (Events)</h4>
+
+    <p>
+        Häufig soll Code erst nach einer Benutzeraktion
+        laufen. Benutzereingaben lösen
+        <b>Ereignisse</b> aus, auf die ein
+        <b>Event-Handler</b> reagiert.
+        Das ist ein zentraler Mechanismus
+        der JavaScript-Programmierung.
+    </p>
+
+    <pre>
+&lt;form&gt;
+  &lt;input type="button" value="Test" onclick="alert('Hallo!')"&gt;
+&lt;/form&gt;
+    </pre>
+
+    <p>
+        Hinter onclick steht der Code, der beim Klick
+        ausgeführt wird. Weil er im HTML-Teil steht,
+        muss er in Anführungszeichen stehen,
+        und innen und außen müssen unterschiedliche
+        Arten (einfach/doppelt) verwendet werden.
+    </p>
+
+
+    <h4>Kommentare</h4>
+
+    <p>
+        Einzeilig mit //, mehrzeilig mit /* ... */.
+        Kommentare werden vom Browser ignoriert
+        und verbessern die Lesbarkeit, besonders
+        bei größeren Programmen, in Teams und
+        beim späteren Wiederlesen.
+    </p>
+
+
+    <h4>Browser ohne JavaScript</h4>
+
+    <p>
+        Nicht jeder Browser oder Nutzer führt JavaScript aus.
+        Der Inhalt des noscript-Tags wird nur angezeigt,
+        wenn kein JavaScript ausgeführt werden kann,
+        z. B. mit dem Hinweis, dass die Seite
+        JavaScript benötigt.
+        Besser ist ein Link auf eine alternative Seite,
+        die auch ohne JavaScript bedienbar ist.
+    </p>
+
+    <pre>
+&lt;noscript&gt;
+  &lt;p&gt;Diese Seite benötigt JavaScript.&lt;/p&gt;
+&lt;/noscript&gt;
+    </pre>
+
+</details>
+
+
+
+    <!-- VORLESUNG 2 -->
+    <!-- JavaScript Vorlesung 2 + HTML Teil 1 -->
+
+    <details>
+        <summary>Vorlesung 2</summary>
+
+        <h3>JavaScript-Grundlagen</h3>
+
+        <p>
+            In dieser Vorlesung wurden grundlegende
+            Konzepte von JavaScript behandelt.
+        </p>
+
+        <ul>
+            <li>Visual Studio Code</li>
+            <li>Variablen</li>
+            <li>Datentypen</li>
+            <li>Programmstruktur</li>
+        </ul>
+
+        <h3>HTML – Einführung</h3>
+
+        <p>
+            Zusätzlich wurde HTML behandelt.
+            HTML dient dazu, die Inhalte
+            einer Webseite zu strukturieren.
+        </p>
+
+        <ul>
+            <li>Aufbau einer HTML-Datei</li>
+            <li>HTML-Elemente</li>
+            <li>Überschriften und Absätze</li>
+        </ul>
+
+    </details>
+
+
+    <!-- VORLESUNG 3 -->
+    <!-- JavaScript Vorlesung 3 + HTML Teil 2 -->
+
+    <details>
+        <summary>Vorlesung 3</summary>
+
+        <h3>JavaScript-Funktionen</h3>
+
+        <p>
+            In dieser Vorlesung wurden
+            Funktionen in JavaScript behandelt.
+        </p>
+
+        <ul>
+            <li>Funktionen</li>
+            <li>Parameter</li>
+            <li>Rückgabewerte</li>
+            <li>Pfeilfunktionen</li>
+        </ul>
+
+        <h3>HTML – Hyperlinks</h3>
+
+        <p>
+            Außerdem wurden Hypertext
+            und Links in HTML behandelt.
+        </p>
+
+        <ul>
+            <li>Hyperlinks</li>
+            <li>Verlinkung von Webseiten</li>
+            <li>Navigation mit Links</li>
+        </ul>
+
+    </details>
+
+
+    <!-- VORLESUNG 4 -->
+    <!-- JavaScript Vorlesung 4 + HTML Teil 3, 4 und 5 -->
+
+    <details>
+        <summary>Vorlesung 4</summary>
+
+        <h3>JavaScript</h3>
+
+        <p>
+            Hier ergänzen wir die Zusammenfassung
+            der JavaScript-Vorlesung 4.
+        </p>
+
+        <h3>HTML Teil 3</h3>
+
+        <p>
+            Hier ergänzen wir die Inhalte
+            aus HTML Teil 3.
+        </p>
+
+        <h3>CSS – Grundlagen</h3>
+
+        <p>
+            In dieser Vorlesung wurde CSS
+            zur Gestaltung von Webseiten behandelt.
+        </p>
+
+        <ul>
+            <li>CSS-Regeln</li>
+            <li>Selektoren</li>
+            <li>Schriftfarben</li>
+            <li>Hintergrundfarben</li>
+        </ul>
+
+        <h3>Weitere CSS-Inhalte</h3>
+
+        <p>
+            Zusätzlich wurden weitere
+            CSS-Konzepte behandelt.
+        </p>
+
+        <ul>
+            <li>CSS-Klassen</li>
+            <li>Vererbung</li>
+            <li>Spezifität von CSS-Regeln</li>
+        </ul>
+
+    </details>
+
+
+    <!-- VORLESUNG 5 -->
+
+    <details>
+        <summary>Vorlesung 5</summary>
+
+        <h3>Zusammenfassung</h3>
+
+        <p>
+            Hier ergänzen wir die Zusammenfassung,
+            sobald die Vorlesungsunterlagen
+            vorliegen.
+        </p>
+
+    </details>
+
+
+    <!-- VORLESUNG 6 -->
+
+    <details>
+        <summary>Vorlesung 6 – jQuery</summary>
+
+        <h3>Zusammenfassung</h3>
+
+        <p>
+            In dieser Vorlesung wurde
+            jQuery behandelt.
+        </p>
+
+        <h3>Wichtige Inhalte</h3>
+
+        <ul>
+            <li>JavaScript-Frameworks</li>
+            <li>jQuery</li>
+            <li>jQuery-Methoden</li>
+        </ul>
+
+        <p>
+            Die ausführliche Zusammenfassung
+            ergänzen wir anhand der beiden PDFs.
+        </p>
+
+    </details>
+
+
+    <!-- VORLESUNG 7 -->
+
+    <details>
+        <summary>Vorlesung 7 – Events</summary>
+
+        <h3>Zusammenfassung</h3>
+
+        <p>
+            In dieser Vorlesung wurden
+            JavaScript- und jQuery-Events behandelt.
+        </p>
+
+        <h3>Wichtige Inhalte</h3>
+
+        <ul>
+            <li>JavaScript-Events</li>
+            <li>jQuery-Events</li>
+        </ul>
+
+        <p>
+            Die ausführliche Zusammenfassung
+            ergänzen wir anhand der Vorlesungsfolien.
+        </p>
+
+    </details>
+
+
+    <!-- PRAKTISCHE ÜBUNGEN -->
+
+    <details>
+        <summary>Praktische Übungen</summary>
+
+        <h3>1. Bohnen zählen</h3>
+
+        <p>
+            Bei dieser Aufgabe habe ich
+            JavaScript-Funktionen verwendet,
+            um bestimmte Buchstaben
+            in einem Text zu zählen.
+        </p>
+
+        <h3>2. Währungsumrechner</h3>
+
+        <p>
+            Bei dieser Aufgabe habe ich
+            einen Währungsumrechner
+            mit HTML und JavaScript erstellt.
+        </p>
+
+        <h3>3. Sternchen-Dreieck</h3>
+
+        <p>
+            Bei dieser Aufgabe habe ich
+            mithilfe von Schleifen
+            ein Sternchen-Dreieck erzeugt.
+        </p>
+
+    </details>
+
+
+    <!-- GEWONNENE ERKENNTNISSE -->
+
+    <details>
+        <summary>Gewonnene Erkenntnisse</summary>
+
+        <p>
+            Während der Vorlesungen habe ich
+            die Grundlagen der Web-Programmierung
+            kennengelernt.
+        </p>
+
+        <p>
+            Ich habe gelernt, wie HTML,
+            CSS und JavaScript zusammenarbeiten.
+        </p>
+
+        <p>
+            Die praktischen Übungen haben mir
+            geholfen, die theoretischen Inhalte
+            besser zu verstehen und anzuwenden.
+        </p>
+
+        <p>
+            Hier ergänze ich später
+            meine persönlichen Erfahrungen
+            und Lernfortschritte.
+        </p>
+
+    </details>
+
+
+    <hr>
+
+
+</body>
+</html>
