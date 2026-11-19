@@ -87,7 +87,7 @@
             Beispiele ergänzt.
         </p>
     </details>
-    
+
 <!-- Vorlesung 1 -->
 
 <details>
@@ -368,40 +368,772 @@ alert(17 + 5 * 3);
 
 
     <!-- VORLESUNG 2 -->
-    <!-- JavaScript Vorlesung 2 + HTML Teil 1 -->
 
-    <details>
-        <summary>Vorlesung 2</summary>
+<!-- Vorlesung 2: JavaScript-Grundlagen -->
 
-        <h3>JavaScript-Grundlagen</h3>
+<details>
+    <summary>Vorlesung 2 – JavaScript-Grundlagen</summary>
 
-        <p>
-            In dieser Vorlesung wurden grundlegende
-            Konzepte von JavaScript behandelt.
-        </p>
+    <h3>Vorlesung 2: JavaScript-Grundlagen</h3>
+    <p><b>Datum:</b> 12.10.2026</p>
 
-        <ul>
-            <li>Visual Studio Code</li>
-            <li>Variablen</li>
-            <li>Datentypen</li>
-            <li>Programmstruktur</li>
-        </ul>
+    <p>
+        In der zweiten Vorlesung ging es um die Grundlagen
+        der JavaScript-Programmierung. Behandelt wurden
+        die Entwicklungsumgebung, Variablen, Datentypen,
+        Operatoren, Arrays, Objekte und Kontrollstrukturen.
+        Außerdem wurden die Inhalte anhand von
+        praktischen Programmierbeispielen erklärt.
+    </p>
 
-        <h3>HTML – Einführung</h3>
+    <h3>1. Entwicklungsumgebung (Folien 3–4)</h3>
 
-        <p>
-            Zusätzlich wurde HTML behandelt.
-            HTML dient dazu, die Inhalte
-            einer Webseite zu strukturieren.
-        </p>
+    <h4>Visual Studio Code</h4>
+    <p>
+        Visual Studio Code (VS Code) ist ein kostenloser
+        und erweiterbarer Codeeditor von Microsoft.
+        Er funktioniert unter Windows, macOS und Linux.
+        Mit VS Code kann man Programmcode schreiben,
+        bearbeiten und organisieren.
+    </p>
 
-        <ul>
-            <li>Aufbau einer HTML-Datei</li>
-            <li>HTML-Elemente</li>
-            <li>Überschriften und Absätze</li>
-        </ul>
+    <p>
+        Alternativ wurden die Editoren Atom, Brackets,
+        Notepad++ und BBEdit vorgestellt.
+    </p>
 
-    </details>
+    <h4>Node.js</h4>
+    <p>
+        Node.js ist eine Laufzeitumgebung für JavaScript.
+        Damit kann JavaScript auch außerhalb eines
+        Browsers ausgeführt werden. Node.js kann
+        beispielsweise für die serverseitige
+        Programmierung (Backend) verwendet werden.
+    </p>
+
+    <p>
+        Mit folgenden Befehlen kann überprüft werden,
+        ob Node.js und npm installiert sind:
+    </p>
+
+    <pre>
+node -v
+npm -v
+    </pre>
+
+
+    <h3>2. JavaScript in der Praxis (Folien 5–24)</h3>
+
+    <p>
+        JavaScript kann HTML-Seiten dynamisch verändern.
+        Beispielsweise können Texte ausgetauscht,
+        Farben verändert und Benutzereingaben
+        verarbeitet werden.
+    </p>
+
+    <h4>HTML-Inhalte verändern</h4>
+    <p>
+        Mit document.getElementById() wird ein
+        HTML-Element über seine ID ausgewählt.
+        Mit innerHTML kann anschließend dessen
+        Inhalt verändert werden.
+    </p>
+
+    <pre>
+document.getElementById("demo").innerHTML = "Hallo Welt!";
+    </pre>
+
+    <h4>CSS-Eigenschaften verändern</h4>
+    <p>
+        JavaScript kann auch das Aussehen
+        eines HTML-Elements verändern.
+        Mit style.color wird beispielsweise
+        die Textfarbe angepasst.
+    </p>
+
+    <pre>
+document.getElementById("demo").style.color = "red";
+    </pre>
+
+    <h4>JavaScript einbinden</h4>
+    <p>
+        JavaScript kann direkt im HTML-Dokument
+        innerhalb eines script-Elements stehen.
+        Alternativ kann der Code in einer
+        separaten JavaScript-Datei gespeichert
+        und mit src eingebunden werden.
+    </p>
+
+    <pre>
+&lt;script src="script.js"&gt;&lt;/script&gt;
+    </pre>
+
+    <h4>Eingaben und Ausgaben</h4>
+
+    <ul>
+        <li>
+            <b>alert():</b> Zeigt eine Nachricht
+            in einem Hinweisfenster an.
+        </li>
+        <li>
+            <b>prompt():</b> Öffnet ein Fenster,
+            in dem Benutzer etwas eingeben können.
+        </li>
+        <li>
+            <b>console.log():</b> Gibt Informationen
+            in der JavaScript-Konsole aus.
+        </li>
+    </ul>
+
+    <pre>
+alert("Hallo!");
+
+let name = prompt("Wie heißt du?");
+
+console.log(name);
+    </pre>
+
+    <h4>Kontrollausgaben und Fehlersuche</h4>
+    <p>
+        Die Browser-Entwicklertools helfen dabei,
+        JavaScript-Programme zu überprüfen.
+        Unter Windows können sie mit F12 geöffnet
+        werden. Auf dem Mac ist beispielsweise
+        die Tastenkombination Command + Option + I möglich.
+    </p>
+
+    <p>
+        Mit console.log() können Werte und
+        Zwischenergebnisse ausgegeben werden.
+        Außerdem kann man Breakpoints setzen.
+        Dadurch wird das Programm an einer
+        bestimmten Stelle angehalten und
+        kann schrittweise untersucht werden.
+    </p>
+
+    <p>
+        Weitere Konsolenmethoden sind
+        console.error(), console.warn(),
+        console.info() und console.clear().
+    </p>
+
+    <h4>Strict Mode</h4>
+    <p>
+        Mit "use strict" wird ein strengerer
+        JavaScript-Modus aktiviert.
+        Dadurch werden bestimmte Fehler
+        leichter erkannt.
+    </p>
+
+    <pre>
+"use strict";
+    </pre>
+
+
+    <h3>3. Variablen und dynamische Typisierung
+        (Folien 25–27)</h3>
+
+    <p>
+        Variablen werden verwendet, um Werte
+        innerhalb eines Programms zu speichern.
+        JavaScript ist dynamisch typisiert.
+        Das bedeutet, dass der Datentyp einer
+        Variablen nicht vorher festgelegt
+        werden muss.
+    </p>
+
+    <p>
+        Eine Variable kann während der
+        Programmausführung auch Werte
+        unterschiedlicher Datentypen speichern.
+    </p>
+
+    <pre>
+let zahl = 5;
+
+zahl = "Hallo";
+    </pre>
+
+    <p>
+        Die Variable enthält zuerst eine Zahl
+        und danach einen String.
+    </p>
+
+    <h4>Variablen deklarieren</h4>
+
+    <ul>
+        <li>
+            <b>let:</b> Erstellt eine Variable,
+            deren Wert verändert werden kann.
+            Sie ist innerhalb ihres Blocks gültig.
+        </li>
+        <li>
+            <b>const:</b> Erstellt eine Bindung,
+            der kein neuer Wert zugewiesen
+            werden kann. Sie ist ebenfalls
+            blockgebunden.
+        </li>
+        <li>
+            <b>var:</b> Eine ältere Möglichkeit
+            zur Variablendeklaration.
+            Sie besitzt andere Regeln für
+            den Gültigkeitsbereich.
+        </li>
+    </ul>
+
+    <p>
+        In der Vorlesung wurde besonders
+        die Verwendung von let empfohlen.
+    </p>
+
+
+    <h3>4. Werte und Datentypen (Folien 28–39)</h3>
+
+    <p>
+        Ein Datentyp beschreibt, welche Art
+        von Wert gespeichert wird.
+        Zu den wichtigen Datentypen gehören:
+    </p>
+
+    <ul>
+        <li>
+            <b>Number:</b> Zahlen wie 5 oder 3.5.
+            JavaScript verwendet den Typ Number
+            sowohl für ganze Zahlen als auch
+            für Dezimalzahlen.
+        </li>
+        <li>
+            <b>String:</b> Texte und Zeichenketten,
+            zum Beispiel "Hallo".
+        </li>
+        <li>
+            <b>Boolean:</b> Wahrheitswerte,
+            also true oder false.
+        </li>
+        <li>
+            <b>Object:</b> Objekte, die mehrere
+            Eigenschaften und Werte enthalten.
+        </li>
+    </ul>
+
+    <h4>Datentyp überprüfen</h4>
+    <p>
+        Mit typeof kann der Datentyp
+        eines Wertes überprüft werden.
+    </p>
+
+    <pre>
+let alter = 20;
+
+console.log(typeof alter);
+    </pre>
+
+    <p>Ausgabe: number</p>
+
+    <h4>Strings</h4>
+    <p>
+        Strings werden verwendet, um Texte
+        darzustellen. Sie können mit einfachen
+        oder doppelten Anführungszeichen
+        geschrieben werden.
+    </p>
+
+    <pre>
+let text = "Hallo";
+
+let name = 'Anna';
+    </pre>
+
+    <p>
+        Mit dem Pluszeichen können Strings
+        miteinander verbunden werden.
+        Dies wird als Verkettung bezeichnet.
+    </p>
+
+    <pre>
+let begruessung = "Hallo " + "Welt";
+    </pre>
+
+    <p>
+        Sonderzeichen können mit einem
+        Backslash geschrieben werden.
+        Beispielsweise steht \n für einen
+        Zeilenumbruch und \t für einen Tabulator.
+    </p>
+
+    <p>
+        Template-Literale werden mit Backticks
+        geschrieben. Mit ${...} lassen sich
+        Werte direkt in einen String einfügen.
+    </p>
+
+    <pre>
+let alter = 20;
+
+console.log(`Ich bin ${alter} Jahre alt.`);
+    </pre>
+
+    <h4>Globale und lokale Variablen</h4>
+
+    <p>
+        Der Gültigkeitsbereich einer Variablen
+        legt fest, an welchen Stellen im
+        Programm auf sie zugegriffen werden kann.
+    </p>
+
+    <ul>
+        <li>
+            <b>Globale Variablen:</b>
+            Werden außerhalb von Funktionen
+            definiert und können in mehreren
+            Bereichen des Programms verwendet werden.
+        </li>
+        <li>
+            <b>Lokale Variablen:</b>
+            Sind nur innerhalb ihres
+            jeweiligen Gültigkeitsbereichs
+            verfügbar.
+        </li>
+    </ul>
+
+    <p>
+        Bei let und const spielt außerdem
+        der Block zwischen geschweiften
+        Klammern eine wichtige Rolle.
+    </p>
+
+    <pre>
+let x = 10;
+
+function beispiel() {
+    let y = 5;
+
+    console.log(x);
+    console.log(y);
+}
+    </pre>
+
+    <p>
+        In diesem Beispiel ist x außerhalb
+        der Funktion definiert. Die Variable y
+        ist nur innerhalb der Funktion verfügbar.
+    </p>
+
+
+    <h3>5. Arrays (Folien 40–41)</h3>
+
+    <p>
+        Ein Array ist eine geordnete Liste,
+        in der mehrere Werte gespeichert
+        werden können.
+    </p>
+
+    <pre>
+let farben = ["Rot", "Blau", "Grün"];
+    </pre>
+
+    <p>
+        Jedes Element besitzt einen Index.
+        Die Zählung beginnt bei 0.
+    </p>
+
+    <pre>
+console.log(farben[0]);
+    </pre>
+
+    <p>Ausgabe: Rot</p>
+
+    <h4>Wichtige Array-Methoden</h4>
+
+    <ul>
+        <li><b>push():</b> Fügt am Ende ein Element hinzu.</li>
+        <li><b>pop():</b> Entfernt das letzte Element.</li>
+        <li><b>shift():</b> Entfernt das erste Element.</li>
+        <li><b>unshift():</b> Fügt vorne ein Element hinzu.</li>
+        <li><b>sort():</b> Sortiert die Elemente.</li>
+        <li><b>reverse():</b> Kehrt die Reihenfolge um.</li>
+        <li><b>join():</b> Verbindet Elemente zu einem String.</li>
+        <li><b>concat():</b> Verbindet Arrays.</li>
+        <li><b>slice():</b> Gibt einen Ausschnitt zurück.</li>
+        <li><b>splice():</b> Entfernt oder ergänzt Elemente.</li>
+        <li><b>filter():</b> Filtert Elemente nach einer Bedingung.</li>
+        <li><b>map():</b> Erstellt ein Array mit veränderten Werten.</li>
+        <li><b>forEach():</b> Durchläuft alle Elemente.</li>
+        <li><b>reduce():</b> Fasst Elemente zu einem Wert zusammen.</li>
+    </ul>
+
+    <p>Beispiel:</p>
+
+    <pre>
+let zahlen = [1, 2, 3];
+
+zahlen.push(4);
+
+console.log(zahlen);
+    </pre>
+
+    <p>Ausgabe: [1, 2, 3, 4]</p>
+
+
+    <h3>6. null und undefined (Folie 42)</h3>
+
+    <p>
+        JavaScript unterscheidet zwischen
+        null und undefined.
+    </p>
+
+    <ul>
+        <li>
+            <b>undefined:</b>
+            Ein Wert wurde noch nicht zugewiesen
+            oder ist nicht vorhanden.
+        </li>
+        <li>
+            <b>null:</b>
+            Beschreibt einen bewusst
+            fehlenden oder leeren Wert.
+        </li>
+    </ul>
+
+    <pre>
+let a;
+
+let b = null;
+
+console.log(a);
+console.log(b);
+    </pre>
+
+
+    <h3>7. Operatoren (Folien 43–46)</h3>
+
+    <p>
+        Operatoren werden verwendet,
+        um Berechnungen durchzuführen,
+        Werte zu vergleichen oder
+        Bedingungen zu verknüpfen.
+    </p>
+
+    <h4>Arithmetische Operatoren</h4>
+
+    <ul>
+        <li>+ Addition</li>
+        <li>- Subtraktion</li>
+        <li>* Multiplikation</li>
+        <li>/ Division</li>
+        <li>% Rest einer Division</li>
+        <li>** Potenzierung</li>
+        <li>++ Erhöhung um 1</li>
+        <li>-- Verringerung um 1</li>
+    </ul>
+
+    <h4>Vergleichsoperatoren</h4>
+
+    <ul>
+        <li>== Gleichheit mit möglicher Typumwandlung</li>
+        <li>=== Strikte Gleichheit</li>
+        <li>!= Ungleichheit</li>
+        <li>!== Strikte Ungleichheit</li>
+        <li>&gt; Größer als</li>
+        <li>&lt; Kleiner als</li>
+        <li>&gt;= Größer oder gleich</li>
+        <li>&lt;= Kleiner oder gleich</li>
+    </ul>
+
+    <p>
+        Der Unterschied zwischen == und ===
+        ist besonders wichtig:
+        Bei === müssen Wert und Datentyp
+        übereinstimmen.
+    </p>
+
+    <pre>
+5 == "5"     // true
+
+5 === "5"    // false
+    </pre>
+
+    <h4>Logische Operatoren</h4>
+
+    <ul>
+        <li>&amp;&amp; bedeutet UND.</li>
+        <li>|| bedeutet ODER.</li>
+        <li>! bedeutet NICHT.</li>
+    </ul>
+
+    <p>
+        Weitere behandelte Operatoren sind
+        der bedingte Operator ? : sowie
+        delete, in, instanceof und typeof.
+    </p>
+
+
+    <h3>8. Kontrollstrukturen (Folien 47–48)</h3>
+
+    <p>
+        Kontrollstrukturen bestimmen,
+        welche Anweisungen ausgeführt
+        und welche wiederholt werden.
+    </p>
+
+    <h4>Bedingungen mit if und else</h4>
+
+    <p>
+        Mit if wird eine Bedingung überprüft.
+        Ist sie erfüllt, wird der entsprechende
+        Code ausgeführt. Mit else kann
+        ein alternativer Ablauf festgelegt werden.
+    </p>
+
+    <pre>
+let alter = 20;
+
+if (alter >= 18) {
+    console.log("Volljährig");
+} else {
+    console.log("Minderjährig");
+}
+    </pre>
+
+    <h4>Schleifen</h4>
+
+    <p>
+        Schleifen wiederholen bestimmte
+        Anweisungen mehrfach.
+    </p>
+
+    <ul>
+        <li>
+            <b>while:</b> Wiederholt Anweisungen,
+            solange eine Bedingung erfüllt ist.
+        </li>
+        <li>
+            <b>do...while:</b> Führt Anweisungen
+            mindestens einmal aus und prüft
+            die Bedingung danach.
+        </li>
+        <li>
+            <b>for:</b> Eignet sich besonders,
+            wenn Wiederholungen über eine
+            Zählvariable gesteuert werden.
+        </li>
+    </ul>
+
+    <p>Beispiel einer for-Schleife:</p>
+
+    <pre>
+for (let i = 0; i < 5; i++) {
+    console.log(i);
+}
+    </pre>
+
+    <p>Ausgabe: 0, 1, 2, 3, 4</p>
+
+    <p>
+        Mit geschachtelten Schleifen kann
+        eine Schleife innerhalb einer anderen
+        Schleife ausgeführt werden.
+        Dies ist beispielsweise bei der
+        Sternchen-Dreieck-Aufgabe wichtig.
+    </p>
+
+
+    <h3>9. Objekte (Folien 49–51)</h3>
+
+    <p>
+        Objekte speichern Informationen
+        in Form von Schlüssel-Wert-Paaren.
+        Sie können Eigenschaften und
+        Methoden besitzen.
+    </p>
+
+    <p>
+        Eine Eigenschaft speichert einen Wert.
+        Eine Methode ist eine Funktion,
+        die zu einem Objekt gehört.
+    </p>
+
+    <pre>
+const person = {
+    vorname: "Max",
+    nachname: "Mustermann"
+};
+
+console.log(person.vorname);
+    </pre>
+
+    <p>
+        Auf Eigenschaften kann über die
+        Punktschreibweise oder über
+        eckige Klammern zugegriffen werden.
+    </p>
+
+    <pre>
+person.vorname
+
+person["vorname"]
+    </pre>
+
+    <p>
+        Objekte können beispielsweise als
+        Objekt-Literal, mit Konstruktorfunktionen
+        oder mit Object.create() erstellt werden.
+    </p>
+
+
+    <h3>10. Praktische Übungen (Folien 52–59)</h3>
+
+    <h4>Ausgabe mit Schleifen</h4>
+
+    <p>
+        In den Übungen wurde gezeigt,
+        wie man mit Schleifen wiederholt
+        Inhalte erzeugen kann.
+        Die Ausgabe kann beispielsweise
+        über console.log() oder innerHTML
+        erfolgen.
+    </p>
+
+    <h4>Zahlenratespiel</h4>
+
+    <p>
+        Beim Zahlenratespiel wird mit
+        Math.random() eine Zufallszahl erzeugt.
+        Anschließend gibt der Benutzer
+        mit prompt() eine Zahl ein.
+    </p>
+
+    <p>
+        Mit einer while-Schleife kann
+        die Eingabe wiederholt werden,
+        bis die gesuchte Zahl gefunden
+        oder das Spiel abgebrochen wird.
+    </p>
+
+    <p>
+        Wichtig ist dabei die Typumwandlung:
+        prompt() gibt eingegebenen Text
+        zunächst als String zurück.
+        JavaScript kann bei bestimmten
+        Operationen automatisch zwischen
+        Datentypen umwandeln.
+    </p>
+
+    <p>
+        Wird das Eingabefenster mit
+        "Abbrechen" geschlossen,
+        liefert prompt() normalerweise null.
+    </p>
+
+    <h4>Sternchen-Dreieck – Abgabe (Folie 59)</h4>
+
+    <p>
+        Bei dieser Übung soll ein Programm
+        geschrieben werden, das mithilfe
+        geschachtelter Schleifen ein
+        Sternchen-Dreieck erzeugt.
+    </p>
+
+    <p>
+        Die Benutzerin gibt zuerst
+        die Anzahl der Zeilen ein.
+        Das Dreieck soll anschließend
+        sowohl auf der HTML-Seite als
+        auch in der Konsole ausgegeben werden.
+    </p>
+
+    <pre>
+*
+**
+***
+****
+*****
+    </pre>
+
+    <p>
+        Bei dieser Aufgabe werden
+        Benutzereingaben, Schleifen
+        und Ausgaben miteinander kombiniert.
+    </p>
+
+
+    <h3>11. Zusammenfassung der wichtigsten Erkenntnisse</h3>
+
+    <p>
+        Die zweite Vorlesung hat gezeigt,
+        wie JavaScript-Programme aufgebaut
+        sind und wie verschiedene
+        Sprachelemente zusammenarbeiten.
+    </p>
+
+    <ul>
+        <li>
+            JavaScript kann im Browser
+            und mit Node.js auch außerhalb
+            des Browsers ausgeführt werden.
+        </li>
+        <li>
+            Variablen speichern Werte und
+            JavaScript verwendet dynamische Typisierung.
+        </li>
+        <li>
+            Arrays speichern mehrere Werte
+            in einer geordneten Liste.
+        </li>
+        <li>
+            Objekte fassen Eigenschaften
+            und Methoden zusammen.
+        </li>
+        <li>
+            Operatoren ermöglichen Berechnungen,
+            Vergleiche und logische Verknüpfungen.
+        </li>
+        <li>
+            Kontrollstrukturen steuern
+            den Ablauf eines Programms.
+        </li>
+        <li>
+            Mit der Konsole und den
+            Entwicklertools können Programme
+            getestet und Fehler gesucht werden.
+        </li>
+    </ul>
+
+
+    <h3>Mein Lernrückblick</h3>
+
+    <p>
+        In dieser Vorlesung habe ich mich
+        intensiver mit den Grundlagen von
+        JavaScript beschäftigt.
+        Besonders wichtig fand ich den
+        Unterschied zwischen let, const
+        und var sowie die dynamische Typisierung.
+    </p>
+
+    <p>
+        Durch die Beispiele konnte ich
+        besser nachvollziehen, wie Variablen,
+        Bedingungen und Schleifen in
+        einem Programm zusammenarbeiten.
+        Außerdem habe ich gelernt,
+        wie ich mit console.log()
+        Zwischenergebnisse überprüfen kann.
+    </p>
+
+    <p>
+        Die praktische Aufgabe mit dem
+        Sternchen-Dreieck zeigt,
+        wie sich mehrere Grundlagen
+        miteinander verbinden lassen.
+        Insgesamt hat mir die Vorlesung
+        geholfen, den Aufbau und Ablauf
+        von JavaScript-Programmen
+        besser zu verstehen.
+    </p>
+
+</details>
+
 
 
     <!-- VORLESUNG 3 -->
