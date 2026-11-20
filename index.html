@@ -1104,7 +1104,7 @@ person["vorname"]
 
     <p>
         In dieser Vorlesung habe ich mich
-        intensiver mit den Grundlagen von
+        mit den Grundlagen von
         JavaScript beschäftigt.
         Besonders wichtig fand ich den
         Unterschied zwischen let, const
@@ -1137,193 +1137,3198 @@ person["vorname"]
 
 
     <!-- VORLESUNG 3 -->
-    <!-- JavaScript Vorlesung 3 + HTML Teil 2 -->
+    
+<!-- VORLESUNG 3 -->
 
-    <details>
-        <summary>Vorlesung 3</summary>
+<details>
+    <summary>Vorlesung 3 – JavaScript-Funktionen und HTML Teil 2</summary>
 
-        <h3>JavaScript-Funktionen</h3>
+    <h3>Vorlesung 3 – 19.10.2026</h3>
 
-        <p>
-            In dieser Vorlesung wurden
-            Funktionen in JavaScript behandelt.
-        </p>
+    <p>
+        In dieser Vorlesung haben wir uns mit Funktionen in JavaScript
+        und mit Hyperlinks in HTML beschäftigt. Bei JavaScript ging es
+        besonders darum, wie Funktionen definiert, aufgerufen und
+        weitergegeben werden können. Im HTML-Teil haben wir gelernt,
+        wie Webseiten miteinander verlinkt werden und wie man
+        Dateien in verschiedenen Ordnern organisiert.
+    </p>
 
-        <ul>
-            <li>Funktionen</li>
-            <li>Parameter</li>
-            <li>Rückgabewerte</li>
-            <li>Pfeilfunktionen</li>
-        </ul>
+    <h2>Teil 1: JavaScript-Grundlagen</h2>
 
-        <h3>HTML – Hyperlinks</h3>
+    <h3>1. Funktionen in JavaScript (Folien 2–4)</h3>
 
-        <p>
-            Außerdem wurden Hypertext
-            und Links in HTML behandelt.
-        </p>
+    <p>
+        Eine Funktion ist ein wiederverwendbarer Programmabschnitt,
+        der eine bestimmte Aufgabe ausführt. Funktionen können
+        Eingabewerte erhalten, diese verarbeiten und anschließend
+        ein Ergebnis zurückgeben.
+    </p>
 
-        <ul>
-            <li>Hyperlinks</li>
-            <li>Verlinkung von Webseiten</li>
-            <li>Navigation mit Links</li>
-        </ul>
+    <p>
+        JavaScript behandelt Funktionen als Werte. Das bedeutet,
+        dass Funktionen auch Variablen zugewiesen, an andere
+        Funktionen übergeben oder von Funktionen zurückgegeben
+        werden können. Man spricht dabei von
+        <b>First-Class Functions</b>.
+    </p>
 
-    </details>
+    <p>Funktionen können auf verschiedene Arten erstellt werden:</p>
+
+    <ul>
+        <li>Mit einer Funktionsanweisung (Function Statement)</li>
+        <li>Mit einem Funktionsausdruck (Function Expression)</li>
+        <li>Mit dem Konstruktor des Function-Objekts</li>
+        <li>Mit einer Pfeilfunktion (Arrow Function)</li>
+    </ul>
+
+    <h4>1.1 Funktionsanweisung</h4>
+
+    <p>
+        Bei einer Funktionsanweisung wird die Funktion mit dem
+        Schlüsselwort <b>function</b> und einem Namen definiert.
+        Die Werte in den Klammern heißen Parameter.
+        Mit <b>return</b> wird ein Ergebnis zurückgegeben.
+    </p>
+
+    <pre>
+function add(number1, number2) {
+    return number1 + number2;
+}
+
+console.log(add(2, 3));
+// Ausgabe: 5
+    </pre>
+
+    <p>
+        JavaScript legt bei dieser Funktion nicht automatisch fest,
+        dass die Parameter Zahlen sein müssen. Werden zwei Strings
+        übergeben, kann das Pluszeichen diese miteinander verbinden.
+        Deshalb kann eine Typprüfung sinnvoll sein.
+    </p>
+
+    <pre>
+function add(number1, number2) {
+    if (typeof number1 != "number" ||
+        typeof number2 != "number") {
+        throw new TypeError("Parameter müssen Zahlen sein.");
+    }
+
+    return number1 + number2;
+}
+    </pre>
+
+    <h4>1.2 Funktionsausdruck</h4>
+
+    <p>
+        Bei einem Funktionsausdruck wird eine Funktion direkt
+        einer Variablen zugewiesen. Die Funktion kann dabei
+        einen eigenen Namen besitzen oder anonym sein.
+    </p>
+
+    <pre>
+const add = function(number1, number2) {
+    return number1 + number2;
+};
+
+console.log(add(4, 5));
+// Ausgabe: 9
+    </pre>
+
+    <p>
+        Eine anonyme Funktion besitzt keinen eigenen Namen.
+        Sie kann trotzdem über die Variable aufgerufen werden,
+        in der sie gespeichert ist.
+    </p>
+
+    <h3>2. Pfeilfunktionen (Folien 5–9)</h3>
+
+    <p>
+        Pfeilfunktionen wurden mit ES2015 eingeführt.
+        Sie sind eine kürzere Schreibweise für Funktionen.
+        Statt des Schlüsselworts function verwendet man
+        den Pfeil <b>=&gt;</b>.
+    </p>
+
+    <p>Eine normale Funktion:</p>
+
+    <pre>
+const hello = function() {
+    return "Hallo Welt!";
+};
+    </pre>
+
+    <p>Dieselbe Funktion als Pfeilfunktion:</p>
+
+    <pre>
+const hello = () => {
+    return "Hallo Welt!";
+};
+    </pre>
+
+    <p>
+        Besteht der Funktionskörper nur aus einem Ausdruck,
+        dessen Wert zurückgegeben werden soll, können
+        die geschweiften Klammern und return entfallen.
+    </p>
+
+    <pre>
+const hello = () => "Hallo Welt!";
+    </pre>
+
+    <h4>2.1 Pfeilfunktion mit einem Parameter</h4>
+
+    <p>
+        Hat eine Pfeilfunktion genau einen einfachen Parameter,
+        dürfen die runden Klammern weggelassen werden.
+    </p>
+
+    <pre>
+const square1 = (x) => {
+    return x * x;
+};
+
+const square2 = x => x * x;
+
+console.log(square2(4));
+// Ausgabe: 16
+    </pre>
+
+    <h4>2.2 Pfeilfunktion ohne Parameter</h4>
+
+    <p>
+        Wenn eine Funktion keine Parameter benötigt,
+        muss ein leeres Klammerpaar geschrieben werden.
+    </p>
+
+    <pre>
+const horn = () => {
+    console.log("Toot");
+};
+
+horn();
+    </pre>
+
+    <h4>2.3 Funktionen aufrufen</h4>
+
+    <p>
+        Eine Funktion wird mit ihrem Namen und runden
+        Klammern aufgerufen. Innerhalb der Klammern
+        stehen die übergebenen Argumente.
+    </p>
+
+    <pre>
+const add = (x, y) => x + y;
+
+console.log(add(2, 2));
+// Ausgabe: 4
+
+console.log(add("Hallo ", "Welt"));
+// Ausgabe: Hallo Welt
+    </pre>
+
+    <p>
+        Wichtig ist, dass der Plusoperator sowohl Zahlen
+        addieren als auch Strings verketten kann.
+        Pfeilfunktionen unterscheiden sich außerdem
+        von normalen Funktionen beim sogenannten
+        <b>this-Binding</b>.
+    </p>
+
+    <h3>3. Parameter und Argumente (Folien 10–16)</h3>
+
+    <p>
+        <b>Parameter</b> sind die Variablen, die bei der
+        Definition einer Funktion angegeben werden.
+        <b>Argumente</b> sind die tatsächlichen Werte,
+        die beim Aufruf übergeben werden.
+    </p>
+
+    <pre>
+function add(a, b) {
+    return a + b;
+}
+
+add(2, 5);
+    </pre>
+
+    <p>
+        In diesem Beispiel sind a und b die Parameter.
+        Die Zahlen 2 und 5 sind die Argumente.
+    </p>
+
+    <h4>3.1 Das arguments-Objekt</h4>
+
+    <p>
+        Bei normalen Funktionen stellt JavaScript das
+        Objekt <b>arguments</b> bereit. Darin stehen
+        die übergebenen Argumente.
+    </p>
+
+    <p>
+        Man kann mit einem Index auf einzelne Argumente
+        zugreifen und mit <b>arguments.length</b>
+        ihre Anzahl bestimmen.
+    </p>
+
+    <pre>
+function addAll() {
+    let result = 0;
+
+    for (let i = 0; i < arguments.length; i++) {
+        result += arguments[i];
+    }
+
+    return result;
+}
+
+console.log(addAll(1, 2, 3));
+// Ausgabe: 6
+    </pre>
+
+    <p>
+        arguments ähnelt einem Array, ist aber kein
+        echtes Array. Deshalb können nicht alle
+        Array-Methoden direkt darauf angewendet werden.
+        Pfeilfunktionen besitzen kein eigenes
+        arguments-Objekt.
+    </p>
+
+    <h4>3.2 Rest-Parameter</h4>
+
+    <p>
+        Seit ES2015 gibt es Rest-Parameter.
+        Sie werden mit drei Punkten
+        <b>...</b> geschrieben und sammeln
+        mehrere übergebene Argumente in einem Array.
+    </p>
+
+    <pre>
+function addAll(...numbers) {
+    let result = 0;
+
+    for (let i = 0; i < numbers.length; i++) {
+        result += numbers[i];
+    }
+
+    return result;
+}
+
+console.log(addAll(2, 3, 4));
+// Ausgabe: 9
+    </pre>
+
+    <p>
+        Rest-Parameter sind besonders hilfreich,
+        wenn vorher nicht bekannt ist, wie viele
+        Argumente übergeben werden.
+        Sie stehen am Ende der Parameterliste.
+    </p>
+
+    <h3>4. Spread-Operator (Folien 17–24)</h3>
+
+    <p>
+        Der Spread-Operator wird ebenfalls mit
+        drei Punkten <b>...</b> geschrieben.
+        Seine Aufgabe ist aber anders als bei
+        Rest-Parametern.
+    </p>
+
+    <ul>
+        <li>
+            <b>Rest:</b> Sammelt mehrere Werte
+            zu einem Array.
+        </li>
+        <li>
+            <b>Spread:</b> Verteilt die Elemente
+            eines Arrays oder die Eigenschaften
+            eines Objekts.
+        </li>
+    </ul>
+
+    <h4>4.1 Arrays erweitern</h4>
+
+    <p>
+        Mit Spread können die Elemente eines Arrays
+        in ein neues Array eingefügt werden.
+    </p>
+
+    <pre>
+let zahlen = [1, 2, 3];
+
+let neueZahlen = [...zahlen, 4, 5];
+
+console.log(neueZahlen);
+// Ausgabe: [1, 2, 3, 4, 5]
+    </pre>
+
+    <h4>4.2 Arrays zusammenfügen</h4>
+
+    <pre>
+let array1 = ["Rot", "Blau"];
+let array2 = ["Grün", "Gelb"];
+
+let farben = [...array1, ...array2];
+
+console.log(farben);
+// Ausgabe: ["Rot", "Blau", "Grün", "Gelb"]
+    </pre>
+
+    <h4>4.3 Objekte zusammenfügen</h4>
+
+    <p>
+        Mit Spread können auch Eigenschaften
+        verschiedener Objekte in einem neuen
+        Objekt zusammengefasst werden.
+    </p>
+
+    <pre>
+let person = {
+    name: "Anna",
+    alter: 20
+};
+
+let adresse = {
+    stadt: "Mannheim"
+};
+
+let daten = {...person, ...adresse};
+
+console.log(daten);
+    </pre>
+
+    <p>
+        Das neue Objekt enthält die Eigenschaften
+        name, alter und stadt.
+        Bei gleichen Eigenschaftsnamen überschreibt
+        ein späterer Wert den vorherigen.
+    </p>
+
+    <h4>4.4 Kopieren und Referenzen</h4>
+
+    <p>
+        Bei Arrays und Objekten ist wichtig,
+        zwischen einer Referenz und einer Kopie
+        zu unterscheiden.
+    </p>
+
+    <p>
+        Wenn eine Objektvariable einer anderen
+        zugewiesen wird, verweisen beide Variablen
+        auf dasselbe Objekt. Eine Änderung ist
+        deshalb über beide Variablen sichtbar.
+    </p>
+
+    <pre>
+let person1 = {name: "Anna"};
+
+let person2 = person1;
+
+person1.name = "Lisa";
+
+console.log(person2.name);
+// Ausgabe: Lisa
+    </pre>
+
+    <p>
+        Mit Spread kann dagegen ein neues Objekt
+        erstellt werden.
+    </p>
+
+    <pre>
+let person1 = {name: "Anna"};
+
+let person2 = {...person1};
+
+person1.name = "Lisa";
+
+console.log(person2.name);
+// Ausgabe: Anna
+    </pre>
+
+    <p>
+        Diese Kopie ist allerdings nur eine
+        <b>flache Kopie</b>. Enthält das Objekt
+        weitere verschachtelte Objekte,
+        können deren Referenzen weiterhin
+        gemeinsam verwendet werden.
+    </p>
+
+    <h3>5. Funktionen als Werte (Folie 25)</h3>
+
+    <p>
+        Da Funktionen in JavaScript Werte sind,
+        können sie in Variablen gespeichert und
+        anderen Variablen zugewiesen werden.
+    </p>
+
+    <p>
+        Bei einer mit let deklarierten Variablen
+        kann sogar später eine andere Funktion
+        gespeichert werden.
+    </p>
+
+    <pre>
+let begruessung = function() {
+    console.log("Hallo!");
+};
+
+begruessung();
+
+begruessung = function() {
+    console.log("Guten Morgen!");
+};
+
+begruessung();
+    </pre>
+
+    <p>
+        Dadurch kann sich ändern, welcher
+        Programmcode beim Aufruf einer
+        Funktionsvariablen ausgeführt wird.
+    </p>
+
+    <h3>6. Seiteneffekte und reine Funktionen (Folien 26–29)</h3>
+
+    <p>
+        Funktionen können einen Rückgabewert liefern
+        oder einen Seiteneffekt auslösen.
+        Beides ist auch gleichzeitig möglich.
+    </p>
+
+    <h4>6.1 Seiteneffekte</h4>
+
+    <p>
+        Ein Seiteneffekt liegt vor, wenn eine
+        Funktion etwas außerhalb ihres
+        eigenen Rückgabewerts verändert oder
+        eine von außen beobachtbare Aktion ausführt.
+    </p>
+
+    <p>Beispiele sind:</p>
+
+    <ul>
+        <li>Eine globale Variable verändern</li>
+        <li>Den Zustand einer Anwendung ändern</li>
+        <li>Eine Ausgabe mit console.log() erzeugen</li>
+    </ul>
+
+    <h4>6.2 Reine Funktionen (Pure Functions)</h4>
+
+    <p>
+        Eine reine Funktion liefert bei denselben
+        Eingabewerten immer dasselbe Ergebnis.
+        Sie verursacht keine Seiteneffekte und
+        verändert keine Daten außerhalb der Funktion.
+    </p>
+
+    <pre>
+const add = (a, b) => a + b;
+
+console.log(add(2, 3));
+// Ausgabe: 5
+    </pre>
+
+    <p>
+        Die Funktion add ist rein, weil ihr
+        Ergebnis nur von den Parametern abhängt
+        und sie selbst nichts verändert.
+    </p>
+
+    <h4>6.3 Beispiel mit einem Objekt</h4>
+
+    <pre>
+const peter = {
+    name: "Peter Smith",
+    hasCar: false
+};
+
+const buyCar = (person) => ({
+    ...person,
+    hasCar: true
+});
+
+console.log(buyCar(peter));
+// Neues Objekt mit hasCar: true
+
+console.log(peter);
+// Ursprüngliches Objekt mit hasCar: false
+    </pre>
+
+    <p>
+        Die Funktion erstellt mit Spread ein neues
+        Objekt, anstatt das ursprüngliche Objekt
+        zu verändern. Das ist ein Beispiel für
+        eine reine Funktion.
+    </p>
+
+    <p>
+        Reine Funktionen sind leichter zu testen,
+        weil ihr Ergebnis vorhersehbar ist.
+        Trotzdem sind Seiteneffekte nicht immer
+        schlecht. Manche Aufgaben benötigen sie,
+        zum Beispiel Ausgaben oder Änderungen
+        an einer Webseite.
+    </p>
+
+    <h3>7. Higher-Order-Functions (Folien 30–34)</h3>
+
+    <p>
+        Higher-Order-Functions sind Funktionen,
+        die andere Funktionen als Argument
+        entgegennehmen oder selbst eine
+        Funktion zurückgeben.
+    </p>
+
+    <p>
+        Beispiele sind die Array-Methoden
+        <b>map()</b>, <b>filter()</b>
+        und <b>reduce()</b>.
+    </p>
+
+    <h4>7.1 Funktionen als Argumente</h4>
+
+    <pre>
+const invokeIf = (condition, ifTrue, ifFalse) => {
+    condition ? ifTrue() : ifFalse();
+};
+
+const showWelcome = () => {
+    console.log("Welcome!");
+};
+
+const showError = () => {
+    console.log("Error!");
+};
+
+invokeIf(true, showWelcome, showError);
+// Ausgabe: Welcome!
+    </pre>
+
+    <p>
+        invokeIf erhält eine Bedingung und
+        zwei Funktionen. Je nachdem, ob die
+        Bedingung wahr oder falsch ist,
+        wird eine der Funktionen aufgerufen.
+    </p>
+
+    <h4>7.2 Eine Funktion zurückgeben</h4>
+
+    <pre>
+function wrapValue(n) {
+    let local = n;
+
+    return () => local;
+}
+
+let wrap1 = wrapValue(1);
+let wrap2 = wrapValue(2);
+
+console.log(wrap1());
+// Ausgabe: 1
+
+console.log(wrap2());
+// Ausgabe: 2
+    </pre>
+
+    <p>
+        wrapValue gibt eine neue Funktion zurück.
+        Diese kann sich den Wert der lokalen
+        Variable merken, auch nachdem der
+        ursprüngliche Funktionsaufruf beendet ist.
+        Dieses Verhalten hängt mit dem Konzept
+        einer <b>Closure</b> zusammen.
+    </p>
+
+    <h3>8. Praktische Übung: Bohnen zählen (Folie 35)</h3>
+
+    <p>
+        Als Abgabe sollten wir die Funktion
+        countBs mithilfe von Pfeilfunktionen
+        schreiben und das laufende Programm
+        zusammen mit dem Quellcode vorzeigen.
+        Alternativ war eine Bildschirmaufnahme möglich.
+    </p>
+
+    <p>
+        Die Aufgabe besteht darin, in einem
+        Text die Anzahl der großen Buchstaben B
+        zu zählen. Mit einer allgemeineren
+        Funktion countChar kann man auch
+        andere Zeichen zählen.
+    </p>
+
+    <pre>
+const countChar = (text, zeichen) => {
+    let anzahl = 0;
+
+    for (let i = 0; i &lt; text.length; i++) {
+        if (text[i] == zeichen) {
+            anzahl++;
+        }
+    }
+
+    return anzahl;
+};
+
+const countBs = (text) => {
+    return countChar(text, "B");
+};
+
+console.log(countBs("BBohnen"));
+// Ausgabe: 2
+
+console.log(countChar("Hallo", "l"));
+// Ausgabe: 2
+    </pre>
+
+    <p>
+        Bei dieser Übung werden Pfeilfunktionen,
+        Parameter, Rückgabewerte, Bedingungen
+        und Schleifen miteinander kombiniert.
+    </p>
+
+
+    <hr>
+
+    <h2>Teil 2: Einführung in HTML – Hypertext und Links</h2>
+
+    <h3>9. Was ist Hypertext? (Folien 2–4)</h3>
+
+    <p>
+        HTML bedeutet HyperText Markup Language.
+        HTML ist eine Auszeichnungssprache,
+        mit der die Struktur von Webseiten
+        beschrieben wird.
+    </p>
+
+    <p>
+        Der Begriff <b>Hypertext</b> bedeutet,
+        dass Texte miteinander verknüpft
+        werden können. Durch Hyperlinks
+        kann man von einer Webseite zu
+        einer anderen wechseln.
+    </p>
+
+    <p>
+        Links sind damit eine wichtige
+        Grundlage für die Navigation
+        im World Wide Web.
+    </p>
+
+    <h3>10. Hyperlinks erstellen (Folien 5–18)</h3>
+
+    <p>
+        In HTML werden Links mit dem
+        <b>a-Element</b> erstellt.
+        Das a steht für Anchor.
+    </p>
+
+    <p>
+        Der Text zwischen dem öffnenden
+        und schließenden a-Tag wird als
+        anklickbarer Link angezeigt.
+    </p>
+
+    <pre>
+&lt;a href="elixire.html"&gt;Elixiere&lt;/a&gt;
+    </pre>
+
+    <p>
+        Das Attribut <b>href</b> gibt an,
+        wohin der Link führen soll.
+        Wenn der Benutzer auf den Link
+        klickt, öffnet der Browser
+        die angegebene Zielseite.
+    </p>
+
+    <p>
+        Im Vorlesungsbeispiel wurde die
+        Webseite einer fiktiven KopfÜBar
+        um Links erweitert.
+    </p>
+
+    <p>
+        Die Hauptseite bar.html sollte
+        beispielsweise auf eine Seite
+        mit Elixieren und auf eine
+        Wegbeschreibung verlinken.
+    </p>
+
+    <pre>
+&lt;a href="elixir.html"&gt;Elixiere&lt;/a&gt;
+
+&lt;a href="wegbeschreibung.html"&gt;Wegbeschreibung&lt;/a&gt;
+    </pre>
+
+    <p>
+        Nach dem Speichern wurden die
+        Links im Browser getestet.
+        Dabei wurde überprüft, ob die
+        richtige Seite geöffnet wird
+        und ob man mit der Zurück-Taste
+        wieder zur Hauptseite gelangt.
+    </p>
+
+    <h3>11. HTML-Attribute (Folien 19–23)</h3>
+
+    <p>
+        Attribute geben zusätzliche
+        Informationen zu HTML-Elementen an.
+        Sie stehen im öffnenden Tag.
+    </p>
+
+    <p>Beispiele:</p>
+
+    <pre>
+&lt;a href="seite.html"&gt;Link&lt;/a&gt;
+
+&lt;img src="bild.jpg"&gt;
+
+&lt;style type="text/css"&gt;
+    </pre>
+
+    <ul>
+        <li>
+            <b>href:</b> Gibt das Ziel
+            eines Hyperlinks an.
+        </li>
+        <li>
+            <b>src:</b> Gibt die Quelle
+            einer Datei an, beispielsweise
+            eines Bildes.
+        </li>
+        <li>
+            <b>type:</b> Beschreibt bei
+            entsprechenden Elementen
+            den Typ des Inhalts.
+        </li>
+    </ul>
+
+    <p>
+        Attribute bestehen normalerweise
+        aus einem Namen, einem Gleichheitszeichen
+        und einem Wert in Anführungszeichen.
+    </p>
+
+    <p>
+        Im Vorlesungsmaterial wird empfohlen,
+        Attributwerte immer in Anführungszeichen
+        zu schreiben.
+    </p>
+
+    <p>
+        HTML-Elemente unterstützen nur
+        bestimmte Attribute. Man sollte
+        deshalb die vorgesehenen Attribute
+        für das jeweilige Element verwenden.
+    </p>
+
+    <h3>12. Weitere Möglichkeiten mit Links (Folien 24–26)</h3>
+
+    <p>
+        Links können auch verwendet werden,
+        um von einer Unterseite zurück
+        zur Hauptseite zu gelangen.
+    </p>
+
+    <pre>
+&lt;a href="bar.html"&gt;Zurück zur Hauptseite&lt;/a&gt;
+    </pre>
+
+    <p>
+        Außerdem können Bilder als Links
+        verwendet werden. Dazu wird ein
+        img-Element innerhalb eines
+        a-Elements platziert.
+    </p>
+
+    <pre>
+&lt;a href="bar.html"&gt;
+    &lt;img src="bild.jpg" alt="Zur Hauptseite"&gt;
+&lt;/a&gt;
+    </pre>
+
+    <p>
+        Nicht jedes HTML-Element eignet
+        sich dafür, direkt innerhalb eines
+        Links verwendet zu werden.
+        Entscheidend ist, welche
+        Inhalte im a-Element erlaubt sind.
+    </p>
+
+    <h3>13. Webseiten mit Ordnern organisieren (Folien 27–31)</h3>
+
+    <p>
+        Wenn eine Webseite größer wird,
+        ist es unübersichtlich, alle
+        Dateien in einem einzigen
+        Ordner zu speichern.
+    </p>
+
+    <p>
+        Deshalb sollte man die Dateien
+        sinnvoll auf verschiedene
+        Unterordner verteilen.
+    </p>
+
+    <p>
+        Im Beispiel der KopfÜBar
+        wurde die Webseite folgendermaßen
+        organisiert:
+    </p>
+
+    <pre>
+bar/
+    bar.html
+
+    info/
+        wegbeschreibung.html
+
+    getraenke/
+        elixir.html
+
+    bilder/
+        getraenke.gif
+        rot.jpg
+        gruen.jpg
+    </pre>
+
+    <p>
+        Der Ordner bar ist das
+        Hauptverzeichnis der Webseite.
+        Die HTML-Dateien und Bilder
+        werden nach ihrem Inhalt
+        in Unterordner aufgeteilt.
+    </p>
+
+    <p>
+        Diese Organisation erleichtert
+        die Übersicht und die spätere
+        Erweiterung der Webseite.
+    </p>
+
+    <h3>14. Relative Dateipfade (Folien 32–44)</h3>
+
+    <p>
+        Wenn Dateien verschoben werden,
+        funktionieren alte Links
+        möglicherweise nicht mehr.
+        Der Grund ist, dass sich
+        die Speicherorte geändert haben.
+    </p>
+
+    <p>
+        Ein <b>relativer Pfad</b>
+        beschreibt den Weg von der
+        aktuellen Datei zu einer
+        anderen Datei.
+    </p>
+
+    <h4>14.1 Datei im gleichen Ordner</h4>
+
+    <p>
+        Befinden sich zwei Dateien
+        im selben Ordner, genügt
+        der Dateiname.
+    </p>
+
+    <pre>
+&lt;a href="seite.html"&gt;Seite öffnen&lt;/a&gt;
+    </pre>
+
+    <h4>14.2 Datei in einem Unterordner</h4>
+
+    <p>
+        Liegt die Zieldatei in einem
+        Unterordner, wird zuerst
+        der Ordnername und dann
+        der Dateiname angegeben.
+    </p>
+
+    <pre>
+&lt;a href="getraenke/elixir.html"&gt;Elixiere&lt;/a&gt;
+    </pre>
+
+    <p>
+        Der Schrägstrich trennt die
+        einzelnen Ordner und Dateien.
+    </p>
+
+    <h4>14.3 Eine Ordnerebene nach oben</h4>
+
+    <p>
+        Mit <b>../</b> geht man
+        im Verzeichnisbaum eine
+        Ebene nach oben.
+    </p>
+
+    <p>
+        Befindet man sich beispielsweise
+        in getraenke/elixir.html und
+        möchte zur Hauptseite bar.html
+        zurückkehren, verwendet man:
+    </p>
+
+    <pre>
+&lt;a href="../bar.html"&gt;Zurück zur Bar&lt;/a&gt;
+    </pre>
+
+    <h4>14.4 Zwei Ordnerebenen nach oben</h4>
+
+    <p>
+        Für jede weitere Ebene nach
+        oben wird ein zusätzliches
+        ../ verwendet.
+    </p>
+
+    <pre>
+&lt;a href="../../index.html"&gt;Startseite&lt;/a&gt;
+    </pre>
+
+    <p>
+        Relative Pfade hängen immer
+        vom Speicherort der aktuellen
+        Datei ab. Deshalb muss man
+        zuerst den Ausgangspunkt
+        und das Ziel bestimmen.
+    </p>
+
+    <h3>15. Relative Pfade bei Bildern (Folien 45–48)</h3>
+
+    <p>
+        Nicht nur Links, sondern
+        auch Bilder benötigen
+        den richtigen Dateipfad.
+    </p>
+
+    <p>
+        Wenn ein Bild in einen
+        Unterordner verschoben wird,
+        muss das src-Attribut
+        angepasst werden.
+    </p>
+
+    <p>Vorher:</p>
+
+    <pre>
+&lt;img src="getraenke.gif" alt="Getränke"&gt;
+    </pre>
+
+    <p>Nach dem Verschieben in den Ordner bilder:</p>
+
+    <pre>
+&lt;img src="bilder/getraenke.gif" alt="Getränke"&gt;
+    </pre>
+
+    <p>
+        Wenn eine HTML-Datei selbst
+        in einem Unterordner liegt,
+        muss auch der Pfad zum
+        Bild entsprechend angepasst werden.
+    </p>
+
+    <pre>
+&lt;img src="../bilder/rot.jpg" alt="Rotes Getränk"&gt;
+    </pre>
+
+    <p>
+        In diesem Beispiel geht der
+        Browser zuerst eine Ebene
+        nach oben und anschließend
+        in den Ordner bilder.
+    </p>
+
+    <h3>16. Praktische Übungen zu HTML (Folien 9–13, 24–25, 31, 38, 48)</h3>
+
+    <p>
+        Im HTML-Teil gab es mehrere
+        Übungen zur Navigation und
+        Dateiorganisation.
+    </p>
+
+    <ul>
+        <li>
+            Links von der Hauptseite
+            zu anderen HTML-Seiten erstellen.
+        </li>
+        <li>
+            Links zum Zurückkehren
+            auf die Hauptseite ergänzen.
+        </li>
+        <li>
+            Die Webseite in die Ordner
+            info, getraenke und bilder aufteilen.
+        </li>
+        <li>
+            Nach dem Verschieben der
+            Dateien fehlerhafte Links erkennen.
+        </li>
+        <li>
+            Relative Pfade mit ../
+            richtig angeben.
+        </li>
+        <li>
+            Bildpfade an die neue
+            Ordnerstruktur anpassen.
+        </li>
+        <li>
+            Alle Änderungen im Browser
+            testen.
+        </li>
+    </ul>
+
+    <h3>17. Relativität als Herausforderung (Folien 49–55)</h3>
+
+    <p>
+        Zum Abschluss wurde noch einmal
+        deutlich gemacht, dass relative
+        Pfade bei größeren Webseiten
+        schnell unübersichtlich werden können.
+    </p>
+
+    <p>
+        Entscheidend ist immer,
+        von welcher Datei aus
+        ein Pfad angegeben wird.
+        Derselbe Dateiname kann
+        je nach Ausgangspunkt
+        einen anderen Pfad benötigen.
+    </p>
+
+    <p>
+        Deshalb ist eine klare
+        Ordnerstruktur wichtig.
+        Am Ende der Unterlagen
+        gab es außerdem ein
+        HTML-Kreuzworträtsel
+        zur Wiederholung der Begriffe.
+    </p>
+
+
+    <hr>
+
+    <h2>Zusammenfassung meiner wichtigsten Erkenntnisse</h2>
+
+    <ul>
+        <li>
+            Funktionen helfen dabei,
+            Programmcode wiederzuverwenden.
+        </li>
+        <li>
+            Pfeilfunktionen ermöglichen
+            eine kürzere Schreibweise.
+        </li>
+        <li>
+            Parameter stehen in der
+            Funktionsdefinition, Argumente
+            werden beim Aufruf übergeben.
+        </li>
+        <li>
+            Rest-Parameter sammeln Werte,
+            während Spread Werte verteilt.
+        </li>
+        <li>
+            Reine Funktionen verändern
+            keine Daten außerhalb der Funktion.
+        </li>
+        <li>
+            Higher-Order-Functions können
+            andere Funktionen entgegennehmen
+            oder zurückgeben.
+        </li>
+        <li>
+            Hyperlinks verbinden Webseiten
+            miteinander.
+        </li>
+        <li>
+            Das href-Attribut legt
+            das Ziel eines Links fest.
+        </li>
+        <li>
+            Ordnerstrukturen sorgen
+            für eine bessere Übersicht.
+        </li>
+        <li>
+            Relative Pfade müssen
+            immer vom aktuellen
+            Speicherort aus betrachtet werden.
+        </li>
+    </ul>
+
+    <h3>Mein Lernrückblick</h3>
+
+    <p>
+        In der dritten Vorlesung habe ich
+        gelernt, wie unterschiedlich
+        Funktionen in JavaScript
+        geschrieben und verwendet
+        werden können. Besonders
+        interessant fand ich die
+        Pfeilfunktionen, weil sie
+        kürzer sind als normale
+        Funktionsdefinitionen.
+    </p>
+
+    <p>
+        Durch die Aufgabe zum
+        Bohnenzählen konnte ich
+        besser verstehen, wie
+        Funktionen, Parameter
+        und Schleifen zusammenarbeiten.
+        Außerdem wurde mir der
+        Unterschied zwischen
+        Rest-Parametern und dem
+        Spread-Operator klarer.
+    </p>
+
+    <p>
+        Im HTML-Teil habe ich
+        gelernt, wie Webseiten
+        durch Hyperlinks miteinander
+        verbunden werden.
+        Besonders wichtig war
+        für mich das Arbeiten mit
+        relativen Pfaden.
+        Ich habe verstanden, dass
+        Links und Bilder nicht
+        mehr richtig funktionieren,
+        wenn Dateien verschoben
+        werden und die Pfade
+        nicht angepasst werden.
+    </p>
+
+    <p>
+        Insgesamt konnte ich
+        mein Verständnis für
+        JavaScript-Funktionen
+        und die Organisation
+        mehrerer HTML-Dateien
+        erweitern.
+    </p>
+
+</details>
+
 
 
     <!-- VORLESUNG 4 -->
     <!-- JavaScript Vorlesung 4 + HTML Teil 3, 4 und 5 -->
 
-    <details>
-        <summary>Vorlesung 4</summary>
+   
+<!-- Vorlesung 4 -->
 
-        <h3>JavaScript</h3>
+<details>
+    <summary>Vorlesung 4 – JavaScript, HTML und CSS</summary>
 
-        <p>
-            Hier ergänzen wir die Zusammenfassung
-            der JavaScript-Vorlesung 4.
-        </p>
+    <h3>Vorlesung 4 – 26.10.2026</h3>
 
-        <h3>HTML Teil 3</h3>
+    <p>
+        In dieser Vorlesung ging es um die Verarbeitung von
+        Zeichenketten und Formulareingaben mit JavaScript.
+        Außerdem haben wir gelernt, wie HTML-Seiten aufgebaut
+        und mit CSS gestaltet werden.
+    </p>
 
-        <p>
-            Hier ergänzen wir die Inhalte
-            aus HTML Teil 3.
-        </p>
+    <h2>Teil 1: JavaScript – Strings und Formulare</h2>
 
-        <h3>CSS – Grundlagen</h3>
+    <h3>1. Strings</h3>
 
-        <p>
-            In dieser Vorlesung wurde CSS
-            zur Gestaltung von Webseiten behandelt.
-        </p>
+    <p>
+        Ein String ist eine Zeichenkette, also ein Text.
+        Strings können in JavaScript direkt mit
+        Anführungszeichen erstellt werden.
+        Alternativ gibt es den String-Konstruktor.
+    </p>
 
-        <ul>
-            <li>CSS-Regeln</li>
-            <li>Selektoren</li>
-            <li>Schriftfarben</li>
-            <li>Hintergrundfarben</li>
-        </ul>
+    <pre>
+let text = "Hallo Welt";
+let text2 = new String("Hallo Welt");
+    </pre>
 
-        <h3>Weitere CSS-Inhalte</h3>
+    <h3>2. Wichtige String-Methoden</h3>
 
-        <p>
-            Zusätzlich wurden weitere
-            CSS-Konzepte behandelt.
-        </p>
+    <p>
+        Mit String-Methoden können Texte untersucht,
+        durchsucht und in einzelne Teile zerlegt werden.
+    </p>
 
-        <ul>
-            <li>CSS-Klassen</li>
-            <li>Vererbung</li>
-            <li>Spezifität von CSS-Regeln</li>
-        </ul>
+    <ul>
+        <li><b>charAt(index):</b> Gibt ein Zeichen an einer bestimmten Position zurück.</li>
+        <li><b>indexOf(text):</b> Findet die erste Position eines gesuchten Textes.</li>
+        <li><b>lastIndexOf(text):</b> Findet die letzte Position eines gesuchten Textes.</li>
+        <li><b>substring(start, ende):</b> Gibt einen bestimmten Teil eines Strings zurück.</li>
+        <li><b>split(trennzeichen):</b> Zerlegt einen String in ein Array.</li>
+        <li><b>length:</b> Gibt die Länge einer Zeichenkette an.</li>
+    </ul>
 
-    </details>
+    <pre>
+let text = "Hallo Welt";
+
+text.charAt(0);        // "H"
+text.indexOf("Welt");  // 6
+text.substring(0, 5);  // "Hallo"
+text.split(" ");       // ["Hallo", "Welt"]
+text.length;           // 10
+    </pre>
+
+    <p>
+        Wichtig ist, dass die Zählung bei 0 beginnt.
+        Wird ein gesuchter Text nicht gefunden,
+        liefert indexOf() den Wert -1.
+        Bei substring() ist die Endposition nicht enthalten.
+        length ist eine Eigenschaft und keine Methode.
+    </p>
+
+    <h3>3. Das Document Object Model (DOM)</h3>
+
+    <p>
+        Das DOM stellt die HTML-Elemente einer Webseite
+        als Objekte dar. JavaScript kann dadurch
+        auf einzelne Elemente zugreifen und
+        deren Inhalte oder Eigenschaften verändern.
+    </p>
+
+    <p>
+        Beispielsweise können Texte ausgelesen,
+        Eingabewerte verarbeitet und Formulare
+        verändert werden.
+    </p>
+
+    <h3>4. Formulare in JavaScript</h3>
+
+    <p>
+        HTML-Formulare ermöglichen es Benutzern,
+        Daten auf einer Webseite einzugeben.
+        Mit JavaScript können diese Eingaben
+        ausgelesen und weiterverarbeitet werden.
+    </p>
+
+    <p>
+        Ein Formular wird mit dem form-Element erstellt.
+        Über das Attribut name können Formulare
+        und Eingabefelder angesprochen werden.
+    </p>
+
+    <pre>
+&lt;form name="meinFormular"&gt;
+    &lt;input type="text" name="eingabe"&gt;
+&lt;/form&gt;
+    </pre>
+
+    <p>
+        Mit der Eigenschaft value kann JavaScript
+        den Wert eines Eingabefeldes lesen
+        oder verändern.
+    </p>
+
+    <pre>
+document.meinFormular.eingabe.value
+    </pre>
+
+    <h3>5. Wichtige Formularelemente</h3>
+
+    <ul>
+        <li><b>Text:</b> Ein Eingabefeld für Text.</li>
+        <li><b>Password:</b> Verdeckt die eingegebenen Zeichen.</li>
+        <li><b>Hidden:</b> Ein unsichtbares Eingabefeld.</li>
+        <li><b>Button:</b> Eine Schaltfläche für Benutzeraktionen.</li>
+        <li><b>Submit:</b> Sendet ein Formular ab.</li>
+        <li><b>Reset:</b> Setzt Eingabefelder auf ihre Anfangswerte zurück.</li>
+        <li><b>Checkbox:</b> Ermöglicht mehrere unabhängige Auswahlen.</li>
+        <li><b>Radio:</b> Ermöglicht die Auswahl einer Option innerhalb einer Gruppe.</li>
+        <li><b>Select:</b> Erstellt eine Auswahlliste.</li>
+    </ul>
+
+    <p>
+        Bei Checkboxen und Radio-Buttons kann
+        mit checked überprüft werden, ob sie
+        ausgewählt sind.
+    </p>
+
+    <p>
+        Bei Auswahllisten sind die Eigenschaften
+        options und selectedIndex wichtig.
+        Mit selected kann eine Option
+        vorausgewählt werden.
+    </p>
+
+    <hr>
+
+    <h2>Teil 2: HTML – Aufbau und Struktur</h2>
+
+    <h3>6. Aufbau einer HTML-Seite</h3>
+
+    <p>
+        HTML steht für HyperText Markup Language.
+        Mit HTML wird die Struktur und Bedeutung
+        der Inhalte einer Webseite festgelegt.
+    </p>
+
+    <p>
+        Eine Webseite sollte zuerst geplant werden,
+        damit die Inhalte sinnvoll angeordnet sind.
+        Dafür können Überschriften, Absätze,
+        Bilder und weitere HTML-Elemente
+        verwendet werden.
+    </p>
+
+    <h3>7. Wichtige HTML-Elemente</h3>
+
+    <ul>
+        <li><b>html:</b> Enthält das gesamte HTML-Dokument.</li>
+        <li><b>head:</b> Enthält Informationen über die Webseite.</li>
+        <li><b>body:</b> Enthält den sichtbaren Inhalt.</li>
+        <li><b>h1 bis h6:</b> Überschriften in verschiedenen Ebenen.</li>
+        <li><b>p:</b> Kennzeichnet einen Absatz.</li>
+        <li><b>img:</b> Fügt ein Bild ein.</li>
+        <li><b>br:</b> Erzeugt einen Zeilenumbruch.</li>
+        <li><b>q:</b> Kennzeichnet ein kurzes Zitat.</li>
+        <li><b>blockquote:</b> Kennzeichnet ein längeres Zitat.</li>
+        <li><b>em:</b> Hebt einen Text inhaltlich hervor.</li>
+        <li><b>strong:</b> Kennzeichnet besonders wichtige Inhalte.</li>
+    </ul>
+
+    <p>
+        HTML beschreibt hauptsächlich die Struktur
+        und Bedeutung der Inhalte.
+        Die optische Gestaltung erfolgt mit CSS.
+    </p>
+
+    <h3>8. HTML-Elemente richtig verwenden</h3>
+
+    <p>
+        HTML-Elemente sollten passend zum Inhalt
+        ausgewählt und richtig verschachtelt werden.
+        Dadurch wird die Webseite übersichtlicher
+        und der Code leichter verständlich.
+    </p>
+
+    <p>
+        Beispielsweise werden Überschriften
+        mit h1 bis h6 gekennzeichnet und
+        normale Textabsätze mit p.
+        Für tabellarische Daten können
+        HTML-Tabellen verwendet werden.
+    </p>
+
+    <hr>
+
+    <h2>Teil 3: CSS – Gestaltung von Webseiten</h2>
+
+    <h3>9. Was ist CSS?</h3>
+
+    <p>
+        CSS steht für Cascading Style Sheets.
+        Mit CSS wird das Aussehen einer Webseite
+        gestaltet, zum Beispiel Farben,
+        Schriftarten, Abstände und Rahmen.
+    </p>
+
+    <p>
+        Eine CSS-Regel besteht aus einem Selektor
+        und einer oder mehreren Deklarationen.
+        Eine Deklaration enthält eine Eigenschaft
+        und den dazugehörigen Wert.
+    </p>
+
+    <pre>
+p {
+    color: purple;
+    background-color: pink;
+}
+    </pre>
+
+    <p>
+        Der Selektor p spricht alle p-Elemente an.
+        color legt die Textfarbe fest und
+        background-color die Hintergrundfarbe.
+    </p>
+
+    <h3>10. CSS in HTML einbinden</h3>
+
+    <p>
+        CSS kann direkt im HTML-Dokument
+        innerhalb eines style-Elements
+        im head-Bereich stehen.
+    </p>
+
+    <pre>
+&lt;style&gt;
+    h1 {
+        color: purple;
+    }
+&lt;/style&gt;
+    </pre>
+
+    <p>
+        Alternativ kann CSS in einer separaten
+        Datei gespeichert werden.
+        Diese wird mit dem link-Element eingebunden.
+    </p>
+
+    <pre>
+&lt;link rel="stylesheet" href="style.css"&gt;
+    </pre>
+
+    <p>
+        Eine externe CSS-Datei ist besonders
+        praktisch, wenn mehrere Webseiten
+        dasselbe Design verwenden sollen.
+    </p>
+
+    <h3>11. CSS-Selektoren</h3>
+
+    <p>
+        Selektoren legen fest, auf welche
+        HTML-Elemente eine CSS-Regel angewendet wird.
+    </p>
+
+    <p>
+        Mehrere Elemente können mit einer
+        gemeinsamen CSS-Regel gestaltet werden.
+    </p>
+
+    <pre>
+h1, h2 {
+    color: purple;
+    font-family: Arial;
+}
+    </pre>
+
+    <p>
+        Wichtige CSS-Eigenschaften sind:
+    </p>
+
+    <ul>
+        <li><b>color:</b> Textfarbe</li>
+        <li><b>background-color:</b> Hintergrundfarbe</li>
+        <li><b>font-family:</b> Schriftart</li>
+        <li><b>font-size:</b> Schriftgröße</li>
+        <li><b>border:</b> Rahmen</li>
+    </ul>
+
+    <h3>12. Vererbung in CSS</h3>
+
+    <p>
+        Bei der Vererbung übernehmen bestimmte
+        untergeordnete HTML-Elemente
+        Eigenschaften ihrer übergeordneten Elemente.
+    </p>
+
+    <p>
+        Beispielsweise kann die Schriftart,
+        die für body festgelegt wurde,
+        an enthaltene Elemente vererbt werden.
+    </p>
+
+    <pre>
+body {
+    font-family: Arial;
+}
+
+em {
+    font-family: serif;
+}
+    </pre>
+
+    <p>
+        Nicht alle CSS-Eigenschaften werden vererbt.
+        Außerdem können eigene CSS-Regeln
+        die geerbten Werte überschreiben.
+    </p>
+
+    <h3>13. CSS-Klassen</h3>
+
+    <p>
+        Mit CSS-Klassen können bestimmte
+        HTML-Elemente individuell gestaltet werden.
+        Eine Klasse wird im HTML mit class
+        angegeben und in CSS mit einem Punkt
+        angesprochen.
+    </p>
+
+    <pre>
+&lt;p class="wichtig"&gt;Wichtiger Text&lt;/p&gt;
+    </pre>
+
+    <pre>
+.wichtig {
+    color: red;
+}
+    </pre>
+
+    <p>
+        Dieselbe Klasse kann bei mehreren
+        HTML-Elementen verwendet werden.
+        Dadurch lassen sich Gestaltungsregeln
+        wiederverwenden.
+    </p>
+
+    <h3>14. Zusammenspiel von CSS-Regeln</h3>
+
+    <p>
+        Für ein HTML-Element können mehrere
+        CSS-Regeln gleichzeitig gelten.
+        Welche Regel verwendet wird,
+        hängt unter anderem von der
+        Genauigkeit des Selektors
+        und der Reihenfolge der Regeln ab.
+    </p>
+
+    <p>
+        Allgemeine Regeln können durch
+        speziellere Regeln überschrieben werden.
+        CSS-Kommentare werden mit
+        /* und */ geschrieben.
+    </p>
+
+    <h3>15. Ausblick auf weitere CSS-Themen</h3>
+
+    <p>
+        Zum Abschluss wurden weitere Themen
+        wie das Boxmodell, Layout und
+        Positionierung angesprochen.
+        Diese helfen dabei, das Aussehen
+        und die Anordnung von Elementen
+        genauer zu bestimmen.
+    </p>
+
+    <hr>
+
+    <h2>Meine wichtigsten Erkenntnisse</h2>
+
+    <ul>
+        <li>
+            Mit String-Methoden können Texte
+            untersucht und bearbeitet werden.
+        </li>
+        <li>
+            Das DOM ermöglicht den Zugriff
+            auf HTML-Elemente mit JavaScript.
+        </li>
+        <li>
+            Formulare ermöglichen die Eingabe
+            und Verarbeitung von Daten.
+        </li>
+        <li>
+            HTML beschreibt die Struktur
+            und Bedeutung einer Webseite.
+        </li>
+        <li>
+            CSS legt die Gestaltung der
+            HTML-Elemente fest.
+        </li>
+        <li>
+            CSS-Klassen und Vererbung helfen,
+            Webseiten übersichtlich
+            und einheitlich zu gestalten.
+        </li>
+    </ul>
+
+    <h3>Mein Lernrückblick</h3>
+
+    <p>
+        In dieser Vorlesung habe ich gelernt,
+        wie man mit JavaScript Texte verarbeitet
+        und auf Eingaben in HTML-Formularen zugreift.
+        Besonders interessant fand ich die
+        verschiedenen String-Methoden und das DOM.
+    </p>
+
+    <p>
+        Außerdem habe ich besser verstanden,
+        welche Aufgaben HTML und CSS übernehmen.
+        HTML legt die Struktur fest, während
+        CSS für das Aussehen zuständig ist.
+        Besonders hilfreich fand ich CSS-Klassen,
+        weil man damit mehrere Elemente
+        einfach und einheitlich gestalten kann.
+    </p>
+
+</details>
+
 
 
     <!-- VORLESUNG 5 -->
 
-    <details>
-        <summary>Vorlesung 5</summary>
+ 
+<!-- Vorlesung 5 -->
 
-        <h3>Zusammenfassung</h3>
+<details>
+    <summary>Vorlesung 5 – JavaScript: Objekte</summary>
 
-        <p>
-            Hier ergänzen wir die Zusammenfassung,
-            sobald die Vorlesungsunterlagen
-            vorliegen.
-        </p>
+    <h3>Vorlesung 5 – 02.11.2026</h3>
 
-    </details>
+    <p>
+        In dieser Vorlesung haben wir uns mit Objekten in JavaScript
+        beschäftigt. Dabei ging es darum, wie Objekte aufgebaut sind,
+        wie man sie erstellt und wie man mit ihren Eigenschaften und
+        Methoden arbeitet.
+    </p>
+
+    <h3>1. Was sind Objekte?</h3>
+
+    <p>
+        Objekte spielen in JavaScript eine wichtige Rolle.
+        Ein Objekt kann man sich wie einen Behälter vorstellen,
+        der Daten und Funktionen zusammenfasst.
+        Auch HTML-Elemente einer Webseite werden als Objekte dargestellt.
+    </p>
+
+    <ul>
+        <li><b>Eigenschaften (Attribute):</b>
+            Speichern Informationen über ein Objekt.</li>
+        <li><b>Methoden:</b>
+            Sind Funktionen, die zu einem Objekt gehören.</li>
+        <li><b>Members:</b>
+            Gemeinsamer Begriff für Eigenschaften und Methoden.</li>
+    </ul>
+
+    <p>
+        Beispiel: Ein Auto hat die Eigenschaft Farbe
+        und die Methode fahren.
+        Objekte können außerdem miteinander in Beziehung stehen.
+    </p>
+
+    <h3>2. Eigenschaften und Methoden verwenden</h3>
+
+    <p>
+        Auf Eigenschaften und Methoden kann man mit einem Punkt
+        oder mit eckigen Klammern zugreifen.
+        Methoden werden mit runden Klammern aufgerufen.
+    </p>
+
+    <pre>
+let text = "JavaScript";
+
+console.log(text.length);        // 10
+console.log(text["length"]);     // 10
+console.log(text.indexOf("Script")); // 4
+    </pre>
+
+    <p>
+        length ist eine Eigenschaft und gibt die Anzahl der Zeichen an.
+        indexOf() ist eine Methode und sucht nach einem bestimmten Text.
+        Die Zählung beginnt bei 0.
+    </p>
+
+    <h3>3. Objekte erstellen</h3>
+
+    <p>
+        Manche Objekte sind bereits in JavaScript vorhanden.
+        Andere müssen selbst erstellt werden.
+        Dafür gibt es verschiedene Möglichkeiten:
+    </p>
+
+    <ul>
+        <li>Mit dem Konstruktor Object()</li>
+        <li>Mit Objekt-Literalen { }</li>
+        <li>Mit Konstruktorfunktionen und Prototypen</li>
+        <li>Mit der Klassenschreibweise class</li>
+    </ul>
+
+    <h4>3.1 Objekte mit Object() erstellen</h4>
+
+    <p>
+        Mit new Object() wird ein neues Objekt erzeugt.
+        Anschließend können Eigenschaften und Methoden
+        hinzugefügt werden.
+    </p>
+
+    <pre>
+let person = new Object();
+
+person.name = "Anna";
+
+person.begruessung = function() {
+    alert("Hallo " + this.name);
+};
+
+person.begruessung();
+    </pre>
+
+    <p>
+        Die Eigenschaft name speichert den Namen.
+        Die Methode begruessung() gibt eine Begrüßung aus.
+        Mit this.name wird auf die Eigenschaft des aktuellen
+        Objekts zugegriffen.
+    </p>
+
+    <h4>3.2 Objekt-Literale { }</h4>
+
+    <p>
+        Ein Objekt kann auch direkt mit geschweiften Klammern
+        erstellt werden. Diese Schreibweise ist kürzer.
+        Eigenschaften und Methoden werden durch Kommas getrennt.
+        Zwischen Eigenschaftsname und Wert steht ein Doppelpunkt.
+    </p>
+
+    <pre>
+let person = {
+    name: "Anna",
+
+    begruessung: function() {
+        alert("Hallo " + this.name);
+    }
+};
+
+person.begruessung();
+    </pre>
+
+    <h3>4. JSON – JavaScript Object Notation</h3>
+
+    <p>
+        JSON ist ein Textformat, mit dem strukturierte Daten
+        gespeichert und zwischen Server und Browser übertragen
+        werden können.
+        Es ähnelt der Objekt-Literal-Schreibweise,
+        hat aber strengere Regeln.
+    </p>
+
+    <p>
+        JSON wird häufig bei Webanwendungen verwendet,
+        die Daten nachladen, ohne die gesamte Webseite
+        neu aufzubauen.
+        Es ist eine Alternative zu XML.
+    </p>
+
+    <h4>Wichtige Regeln für JSON</h4>
+
+    <ul>
+        <li>Eigenschaftsnamen müssen in doppelten Anführungszeichen stehen.</li>
+        <li>Es dürfen nur unterstützte Datenwerte verwendet werden.</li>
+        <li>Funktionen und Funktionsaufrufe sind nicht erlaubt.</li>
+        <li>Kommentare sind nicht erlaubt.</li>
+    </ul>
+
+    <pre>
+{
+    "name": "Anna",
+    "alter": 21,
+    "studentin": true
+}
+    </pre>
+
+    <h4>JSON.stringify() und JSON.parse()</h4>
+
+    <p>
+        JSON.stringify() wandelt JavaScript-Daten in einen JSON-String um.
+        JSON.parse() wandelt einen JSON-String wieder in
+        JavaScript-Daten um.
+    </p>
+
+    <pre>
+let person = { name: "Anna", alter: 21 };
+
+let text = JSON.stringify(person);
+
+let objekt = JSON.parse(text);
+
+console.log(objekt.name); // Anna
+    </pre>
+
+    <p>
+        Beim Datentransfer kann der Server JSON-Text senden.
+        Der Browser kann diesen mit JSON.parse()
+        in ein JavaScript-Objekt umwandeln und weiterverarbeiten.
+    </p>
+
+    <h3>5. Konstruktorfunktionen</h3>
+
+    <p>
+        Konstruktorfunktionen werden verwendet, wenn mehrere
+        Objekte mit dem gleichen Aufbau erstellt werden sollen.
+        Die Eigenschaften können dabei unterschiedliche Werte haben.
+    </p>
+
+    <p>
+        Konstruktorfunktionen werden üblicherweise mit einem
+        Großbuchstaben benannt und mit new aufgerufen.
+    </p>
+
+    <pre>
+function Person(name) {
+    this.name = name;
+
+    this.begruessung = function() {
+        alert("Hallo " + this.name);
+    };
+}
+
+let person1 = new Person("Anna");
+let person2 = new Person("Max");
+
+person1.begruessung();
+person2.begruessung();
+    </pre>
+
+    <p>
+        Beide Objekte besitzen die gleiche Struktur,
+        speichern aber unterschiedliche Namen.
+        Mit this.name wird die Eigenschaft des jeweiligen
+        Objekts festgelegt.
+    </p>
+
+    <h3>6. Klassen in JavaScript</h3>
+
+    <p>
+        Klassen sind eine weitere Möglichkeit, Objekte
+        mit einem gemeinsamen Aufbau zu erstellen.
+        Eine Klasse wird mit class definiert.
+        Mit new wird daraus ein Objekt erzeugt.
+    </p>
+
+    <p>
+        Der Konstruktor einer Klasse heißt constructor().
+        Er wird beim Erstellen eines Objekts automatisch aufgerufen.
+        Wird kein eigener Konstruktor angegeben,
+        gibt es einen Standardkonstruktor.
+    </p>
+
+    <pre>
+class Hund {
+    constructor() {
+        this.type = "Dackel";
+    }
+
+    printType() {
+        console.log(this.type);
+    }
+}
+
+let hund = new Hund();
+hund.printType(); // Dackel
+    </pre>
+
+    <p>
+        Eigenschaften können im Konstruktor festgelegt werden.
+        Methoden werden innerhalb der Klasse definiert.
+        Mit this greift man auf das aktuelle Objekt zu.
+    </p>
+
+    <h3>7. Vererbung mit extends und super()</h3>
+
+    <p>
+        Durch Vererbung kann eine Klasse Eigenschaften
+        und Methoden einer anderen Klasse übernehmen.
+        Dafür wird das Schlüsselwort extends verwendet.
+    </p>
+
+    <p>
+        Wenn die abgeleitete Klasse einen eigenen Konstruktor
+        besitzt, muss zuerst super() aufgerufen werden,
+        bevor auf this zugegriffen wird.
+    </p>
+
+    <pre>
+class Tier {
+    constructor(name) {
+        this.name = name;
+    }
+}
+
+class Hund extends Tier {
+    constructor(name) {
+        super(name);
+    }
+}
+
+let hund = new Hund("Bello");
+console.log(hund.name); // Bello
+    </pre>
+
+    <h3>8. this und der Funktionskontext</h3>
+
+    <p>
+        Das Schlüsselwort this bezieht sich auf einen
+        bestimmten Ausführungskontext.
+        Bei einem normalen Methodenaufruf zeigt this
+        auf das Objekt, über das die Methode aufgerufen wird.
+    </p>
+
+    <pre>
+let person = {
+    name: "Max",
+
+    getName: function() {
+        return this.name;
+    }
+};
+
+console.log(person.getName()); // Max
+    </pre>
+
+    <p>
+        Anders als bei Java hängt der Wert von this
+        in JavaScript häufig davon ab, wie eine Funktion
+        aufgerufen wird.
+    </p>
+
+    <ul>
+        <li><b>Objektmethode:</b> this bezieht sich auf das aufrufende Objekt.</li>
+        <li><b>Konstruktorfunktion mit new:</b> this bezieht sich auf das neu erzeugte Objekt.</li>
+        <li><b>Normale globale Funktion:</b> this hängt vom Modus und der Umgebung ab.</li>
+        <li><b>Pfeilfunktion:</b> Übernimmt this aus ihrem umgebenden Kontext.</li>
+    </ul>
+
+    <p>
+        Besonders bei Callbacks oder beim Weitergeben
+        von Methoden kann der ursprüngliche Bezug
+        zu einem Objekt verloren gehen.
+    </p>
+
+    <h3>9. Funktionen mit bind() verbinden</h3>
+
+    <p>
+        Mit bind() kann eine Funktion dauerhaft
+        an ein bestimmtes Objekt gebunden werden.
+        Dadurch bleibt der gewünschte this-Bezug erhalten,
+        auch wenn die Funktion an anderer Stelle aufgerufen wird.
+    </p>
+
+    <pre>
+class Hund {
+    constructor() {
+        this.type = "Dackel";
+    }
+
+    printType() {
+        console.log(this.type);
+    }
+}
+
+let hund = new Hund();
+
+let funktion = hund.printType.bind(hund);
+
+funktion(); // Dackel
+    </pre>
+
+    <p>
+        Ohne bind() kann bei der Weitergabe einer Methode
+        der Objektbezug verloren gehen.
+        Pfeilfunktionen verwenden dagegen den
+        umgebenden this-Kontext und benötigen
+        deshalb in diesem Fall kein bind().
+    </p>
+
+    <h3>10. Kapselung und private Eigenschaften</h3>
+
+    <p>
+        Kapselung bedeutet, dass bestimmte Daten
+        eines Objekts vor dem direkten Zugriff
+        von außen geschützt werden.
+        Der Zugriff soll über dafür vorgesehene
+        Methoden erfolgen.
+    </p>
+
+    <h4>10.1 Private Variablen in Konstruktorfunktionen</h4>
+
+    <p>
+        Eine Möglichkeit besteht darin, lokale Variablen
+        innerhalb einer Konstruktorfunktion zu verwenden.
+        Diese können nicht direkt von außen gelesen werden.
+    </p>
+
+    <p>
+        Methoden, die innerhalb der Konstruktorfunktion
+        definiert werden und auf diese Variablen zugreifen,
+        heißen privilegierte öffentliche Methoden.
+        Häufig werden dafür Getter und Setter verwendet.
+    </p>
+
+    <pre>
+function Person(name) {
+    let privaterName = name;
+
+    this.getName = function() {
+        return privaterName;
+    };
+
+    this.setName = function(neuerName) {
+        privaterName = neuerName;
+    };
+}
+
+let person = new Person("Anna");
+
+console.log(person.getName()); // Anna
+person.setName("Max");
+    </pre>
+
+    <p>
+        Getter lesen einen Wert aus.
+        Setter verändern einen Wert.
+        Öffentliche Methoden auf dem Prototyp
+        können nicht direkt auf lokale private
+        Variablen des Konstruktors zugreifen.
+    </p>
+
+    <h4>10.2 Echte private Eigenschaften mit #</h4>
+
+    <p>
+        Seit ES2022 unterstützt JavaScript
+        echte private Eigenschaften und Methoden.
+        Diese werden mit einem # vor dem Namen
+        gekennzeichnet.
+    </p>
+
+    <pre>
+class Person {
+    #name;
+
+    constructor(name) {
+        this.#name = name;
+    }
+
+    getName() {
+        return this.#name;
+    }
+
+    setName(name) {
+        this.#name = name;
+    }
+}
+
+let person = new Person("Anna");
+
+console.log(person.getName()); // Anna
+    </pre>
+
+    <p>
+        Auf #name kann nur innerhalb der Klasse
+        zugegriffen werden.
+        Ein direkter Zugriff von außen führt
+        zu einem Syntaxfehler.
+    </p>
+
+    <p>
+        Auch Methoden können mit # als privat
+        gekennzeichnet werden. Sie können dann
+        nur innerhalb der Klasse aufgerufen werden.
+    </p>
+
+    <h3>11. Rest-Parameter</h3>
+
+    <p>
+        Mit drei Punkten (...) können mehrere
+        übergebene Werte in einem Array gesammelt werden.
+        Das nennt man Rest-Parameter.
+    </p>
+
+    <pre>
+function ausgabe(erstes, ...weitere) {
+    console.log(erstes);
+    console.log(weitere);
+}
+
+ausgabe(1, 2, 3, 4);
+
+// erstes: 1
+// weitere: [2, 3, 4]
+    </pre>
+
+    <h3>12. Destructuring</h3>
+
+    <p>
+        Beim Destructuring können einzelne Werte
+        aus Arrays oder Eigenschaften aus Objekten
+        direkt in Variablen übernommen werden.
+        Dadurch wird der Code kürzer und übersichtlicher.
+    </p>
+
+    <h4>12.1 Array Destructuring</h4>
+
+    <pre>
+let [a, b] = [10, 20];
+
+console.log(a); // 10
+console.log(b); // 20
+    </pre>
+
+    <h4>12.2 Object Destructuring</h4>
+
+    <pre>
+let person = {
+    name: "Anna",
+    alter: 21
+};
+
+let { name, alter } = person;
+
+console.log(name);  // Anna
+console.log(alter); // 21
+    </pre>
+
+    <p>
+        Die Variablennamen entsprechen dabei
+        den Eigenschaftsnamen des Objekts.
+        Statt jede Eigenschaft einzeln auszulesen,
+        können mehrere Werte gleichzeitig
+        übernommen werden.
+    </p>
+
+    <h4>12.3 Rest-Syntax beim Destructuring</h4>
+
+    <p>
+        Mit ...rest werden die übrigen Werte
+        oder Eigenschaften gesammelt.
+    </p>
+
+    <pre>
+let person = {
+    name: "Anna",
+    alter: 21,
+    stadt: "Mannheim"
+};
+
+let { name, ...rest } = person;
+
+console.log(name); // Anna
+console.log(rest);
+// {alter: 21, stadt: "Mannheim"}
+    </pre>
+
+    <p>
+        Destructuring kann auch in Schleifen
+        und direkt in Funktionsparametern
+        verwendet werden.
+    </p>
+
+    <h3>13. Object Literal Enhancement</h3>
+
+    <p>
+        Object Literal Enhancement ist eine
+        vereinfachte Schreibweise zum Erstellen
+        von Objekten aus bereits vorhandenen Variablen.
+        Haben Variable und Eigenschaft denselben Namen,
+        muss dieser nur einmal geschrieben werden.
+    </p>
+
+    <pre>
+let name = "Zugspitze";
+let hoehe = 2962;
+
+let berg = { name, hoehe };
+
+console.log(berg);
+    </pre>
+
+    <p>
+        Auch Funktionen können auf diese Weise
+        zu einem Objekt hinzugefügt werden.
+        Das ist gewissermaßen das Gegenstück
+        zum Destructuring.
+    </p>
+
+    <h3>14. Spread-Operator</h3>
+
+    <p>
+        Der Spread-Operator verwendet ebenfalls
+        drei Punkte (...).
+        Er kann die Elemente eines Arrays
+        oder die Eigenschaften eines Objekts
+        in eine neue Struktur übernehmen.
+    </p>
+
+    <h4>Arrays zusammenführen</h4>
+
+    <pre>
+let tiere1 = ["Hund", "Katze"];
+let tiere2 = ["Löwe", "Maus"];
+
+let alleTiere = [...tiere1, ...tiere2];
+
+console.log(alleTiere);
+    </pre>
+
+    <h4>Objekte zusammenführen</h4>
+
+    <pre>
+let morgens = {
+    fruehstueck: "Brot",
+    brunch: "Brezel"
+};
+
+let mahlzeiten = {
+    ...morgens,
+    mittag: "Pizza"
+};
+
+console.log(mahlzeiten);
+    </pre>
+
+    <p>
+        Dabei entsteht eine neue Struktur.
+        Die ursprünglichen Arrays oder Objekte
+        werden durch diesen Vorgang nicht direkt
+        verändert. Bei verschachtelten Daten
+        handelt es sich allerdings nur um
+        eine flache Kopie.
+    </p>
+
+    <hr>
+
+    <h3>Meine wichtigsten Erkenntnisse</h3>
+
+    <ul>
+        <li>Objekte fassen Eigenschaften und Methoden zusammen.</li>
+        <li>Mit Konstruktoren und Klassen lassen sich mehrere ähnliche Objekte erstellen.</li>
+        <li>JSON wird verwendet, um strukturierte Daten zu übertragen.</li>
+        <li>Mit extends können Klassen voneinander erben.</li>
+        <li>this hängt in JavaScript vom jeweiligen Funktionskontext ab.</li>
+        <li>bind() kann den this-Bezug einer Funktion festlegen.</li>
+        <li>Private Eigenschaften schützen Daten vor direktem Zugriff.</li>
+        <li>Destructuring und der Spread-Operator vereinfachen die Arbeit mit Daten.</li>
+    </ul>
+
+    <h3>Mein Lernrückblick</h3>
+
+    <p>
+        In dieser Vorlesung habe ich gelernt, wie Objekte
+        in JavaScript funktionieren und welche Möglichkeiten
+        es gibt, sie zu erstellen.
+        Besonders wichtig fand ich den Unterschied zwischen
+        Eigenschaften und Methoden sowie die Verwendung
+        von Konstruktoren und Klassen.
+    </p>
+
+    <p>
+        Neu für mich waren vor allem JSON, der Umgang mit
+        this und bind() sowie private Eigenschaften.
+        Außerdem habe ich verstanden, wie Destructuring
+        und der Spread-Operator den JavaScript-Code
+        übersichtlicher machen können.
+    </p>
+
+</details>
+
 
 
     <!-- VORLESUNG 6 -->
 
-    <details>
-        <summary>Vorlesung 6 – jQuery</summary>
+<!-- Vorlesung 6 -->
 
-        <h3>Zusammenfassung</h3>
+<details>
+    <summary>Vorlesung 6 – DOM und jQuery</summary>
 
-        <p>
-            In dieser Vorlesung wurde
-            jQuery behandelt.
-        </p>
+    <h3>Vorlesung 6 – 09.11.2026</h3>
 
-        <h3>Wichtige Inhalte</h3>
+    <p>
+        In dieser Vorlesung haben wir gelernt, wie man
+        HTML-Elemente mit JavaScript verändern kann.
+        Außerdem haben wir die JavaScript-Bibliothek
+        jQuery kennengelernt, mit der viele Aufgaben
+        einfacher und kürzer geschrieben werden können.
+    </p>
 
-        <ul>
-            <li>JavaScript-Frameworks</li>
-            <li>jQuery</li>
-            <li>jQuery-Methoden</li>
-        </ul>
+    <h3>1. Webseiten dynamisch verändern</h3>
 
-        <p>
-            Die ausführliche Zusammenfassung
-            ergänzen wir anhand der beiden PDFs.
-        </p>
+    <p>
+        Mit JavaScript können Webseiten verändert werden,
+        ohne dass die gesamte Seite neu geladen werden muss.
+        Man kann zum Beispiel Texte hinzufügen, Bilder
+        ausblenden oder das Aussehen von Elementen ändern.
+    </p>
 
-    </details>
+    <p>
+        Dabei gibt es zwei wichtige Schritte:
+    </p>
+
+    <ol>
+        <li>Das gewünschte HTML-Element finden.</li>
+        <li>Das Element verändern oder Informationen auslesen.</li>
+    </ol>
+
+    <p>
+        Mögliche Änderungen sind das Hinzufügen und Entfernen
+        von CSS-Klassen, das Ändern von Eigenschaften,
+        das Einfügen neuer Inhalte und das Entfernen von Elementen.
+    </p>
+
+    <h3>2. Document Object Model (DOM)</h3>
+
+    <p>
+        DOM steht für Document Object Model.
+        Es ist eine interne Darstellung der HTML-Seite
+        im Browser. Der Browser speichert dabei die
+        HTML-Elemente, Attribute und Texte in einer
+        Baumstruktur.
+    </p>
+
+    <p>
+        Die einzelnen Bestandteile heißen Knoten.
+        Das DOM ist selbst keine Programmiersprache,
+        sondern ein Standard, über den JavaScript
+        auf die Webseite zugreifen kann.
+    </p>
+
+    <h4>Beziehungen zwischen Knoten</h4>
+
+    <ul>
+        <li><b>Elternknoten:</b> Enthält andere Knoten.</li>
+        <li><b>Kindknoten:</b> Liegt direkt innerhalb eines Elternknotens.</li>
+        <li><b>Geschwisterknoten:</b> Haben denselben Elternknoten.</li>
+        <li><b>Textknoten:</b> Enthält den Text eines Elements.</li>
+    </ul>
+
+    <h3>3. HTML-Elemente mit JavaScript auswählen</h3>
+
+    <p>
+        Um ein Element zu verändern, muss man es zuerst finden.
+        Dafür gibt es verschiedene DOM-Methoden.
+    </p>
+
+    <h4>getElementById()</h4>
+
+    <p>
+        Diese Methode sucht ein einzelnes Element
+        anhand seiner eindeutigen ID.
+    </p>
+
+    <pre>
+let titel = document.getElementById("titel");
+    </pre>
+
+    <h4>getElementsByTagName()</h4>
+
+    <p>
+        Diese Methode sucht alle Elemente
+        mit einem bestimmten HTML-Tag.
+        Das Ergebnis ist eine Sammlung von Elementen,
+        auf die man über einen Index zugreifen kann.
+    </p>
+
+    <pre>
+let absaetze = document.getElementsByTagName("p");
+
+console.log(absaetze.length);
+console.log(absaetze[0]);
+    </pre>
+
+    <p>
+        Beide Methoden können auch kombiniert werden,
+        um beispielsweise nur die Absätze innerhalb
+        eines bestimmten Bereichs zu finden.
+    </p>
+
+    <h3>4. Durch die DOM-Struktur navigieren</h3>
+
+    <p>
+        Mit verschiedenen Eigenschaften kann man
+        zwischen benachbarten Knoten wechseln.
+    </p>
+
+    <ul>
+        <li><b>childNodes:</b> Enthält die direkten Kindknoten.</li>
+        <li><b>parentNode:</b> Gibt den direkten Elternknoten zurück.</li>
+        <li><b>nextSibling:</b> Gibt den nächsten Geschwisterknoten zurück.</li>
+        <li><b>previousSibling:</b> Gibt den vorherigen Geschwisterknoten zurück.</li>
+        <li><b>nodeValue:</b> Kann den Inhalt eines Textknotens liefern.</li>
+    </ul>
+
+    <p>
+        Wenn ein gesuchter Geschwisterknoten nicht existiert,
+        wird null zurückgegeben. Auch Leerzeichen und
+        Zeilenumbrüche können als Textknoten vorkommen.
+        Dadurch kann die Navigation im DOM kompliziert werden.
+    </p>
+
+    <h3>5. Inhalte mit innerHTML verändern</h3>
+
+    <p>
+        Mit innerHTML kann man den HTML-Inhalt
+        eines Elements lesen oder ersetzen.
+        Es können sowohl Texte als auch
+        HTML-Tags eingefügt werden.
+    </p>
+
+    <pre>
+let titel = document.getElementById("titel");
+
+titel.innerHTML = "Neue Überschrift";
+    </pre>
+
+    <p>
+        Die ältere Methode document.write()
+        kann beim Laden einer Seite Inhalte ausgeben.
+        Für spätere Änderungen an einer bereits geladenen
+        Webseite ist sie jedoch ungeeignet.
+    </p>
+
+    <h3>6. Warum JavaScript-Bibliotheken?</h3>
+
+    <p>
+        Die direkte Arbeit mit dem DOM kann aufwendig sein.
+        Man muss häufig viele einzelne Schritte schreiben.
+        Außerdem gab es besonders bei älteren Browsern
+        Unterschiede in der Verarbeitung des DOM.
+    </p>
+
+    <p>
+        JavaScript-Bibliotheken stellen fertige Funktionen
+        für wiederkehrende Aufgaben bereit.
+        Dadurch benötigt man weniger eigenen Code.
+    </p>
+
+    <p>
+        Beispiele aus der Vorlesung sind jQuery,
+        Prototype, MooTools, Dojo Toolkit und
+        die Yahoo User Interface Library.
+    </p>
+
+    <h3>7. Was ist jQuery?</h3>
+
+    <p>
+        jQuery ist eine JavaScript-Bibliothek,
+        die den Zugriff auf HTML-Elemente
+        und die Bearbeitung von Webseiten vereinfacht.
+    </p>
+
+    <p>
+        Mit jQuery kann man beispielsweise:
+    </p>
+
+    <ul>
+        <li>HTML-Elemente mit Selektoren auswählen.</li>
+        <li>CSS-Klassen hinzufügen oder entfernen.</li>
+        <li>Texte und Attribute verändern.</li>
+        <li>Elemente ein- und ausblenden.</li>
+        <li>Auf Benutzeraktionen reagieren.</li>
+        <li>Animationen und Effekte verwenden.</li>
+    </ul>
+
+    <p>
+        Vorteile von jQuery sind die vergleichsweise
+        kurze Schreibweise, die Wiederverwendung
+        fertiger Funktionen und die große Auswahl
+        an Erweiterungen, sogenannten Plug-ins.
+        Die Bibliothek ist kostenlos.
+    </p>
+
+    <h3>8. jQuery einbinden</h3>
+
+    <p>
+        Um jQuery zu verwenden, muss die Bibliothek
+        zuerst als JavaScript-Datei in die
+        HTML-Seite eingebunden werden.
+    </p>
+
+    <pre>
+&lt;script src="js/jquery.js"&gt;&lt;/script&gt;
+    </pre>
+
+    <p>
+        Danach kann man eigene JavaScript-Anweisungen
+        schreiben, die jQuery verwenden.
+        Die Bibliothek muss dabei vor dem eigenen
+        jQuery-Code geladen werden.
+    </p>
+
+    <h3>9. jQuery-Selektoren</h3>
+
+    <p>
+        jQuery verwendet die Kurzschreibweise $().
+        Innerhalb der Klammern steht meistens
+        ein Selektor, mit dem HTML-Elemente
+        ausgewählt werden.
+    </p>
+
+    <pre>
+$("p")          // Alle Absätze
+$("#titel")     // Element mit der ID titel
+$(".wichtig")   // Elemente mit der Klasse wichtig
+$("#box p")     // Absätze innerhalb von #box
+    </pre>
+
+    <p>
+        Die Auswahl wird als jQuery-Objekt gespeichert.
+        Dieses enthält eine Sammlung ausgewählter
+        HTML-Elemente, die auch Collection genannt wird.
+    </p>
+
+    <h4>Weitere Selektoren</h4>
+
+    <p>
+        jQuery kann auch nach Attributen und
+        bestimmten Textinhalten suchen.
+    </p>
+
+    <pre>
+$("a[href^='http://']")
+
+$("p:contains('Hallo')")
+    </pre>
+
+    <p>
+        Der erste Selektor wählt Links aus, deren
+        href-Wert mit http:// beginnt.
+        Der zweite wählt Absätze aus,
+        die den Text Hallo enthalten.
+    </p>
+
+    <h3>10. document.ready()</h3>
+
+    <p>
+        Mit ready() kann festgelegt werden,
+        dass der jQuery-Code erst ausgeführt wird,
+        wenn die HTML-Struktur der Seite geladen ist.
+        Dadurch können die benötigten Elemente
+        bereits ausgewählt werden.
+    </p>
+
+    <pre>
+$(document).ready(function() {
+    $("p").addClass("wichtig");
+});
+    </pre>
+
+    <p>
+        In diesem Beispiel bekommen alle
+        p-Elemente die CSS-Klasse wichtig.
+    </p>
+
+    <h3>11. jQuery-Methoden verketten</h3>
+
+    <p>
+        Viele jQuery-Methoden geben wieder
+        ein jQuery-Objekt zurück.
+        Deshalb können mehrere Methoden
+        direkt hintereinander aufgerufen werden.
+        Dies nennt man Verkettung oder Chaining.
+    </p>
+
+    <pre>
+$("p").addClass("wichtig").hide();
+    </pre>
+
+    <p>
+        Hier wird den Absätzen zuerst eine Klasse
+        hinzugefügt. Danach werden sie ausgeblendet.
+    </p>
+
+    <h4>Drei Gruppen von jQuery-Methoden</h4>
+
+    <ul>
+        <li>
+            <b>Transparente Methoden:</b>
+            Geben die gleiche Collection zurück.
+            Die ausgewählten Elemente bleiben erhalten.
+        </li>
+        <li>
+            <b>Destruktive Methoden:</b>
+            Geben eine veränderte Collection zurück,
+            beispielsweise eine kleinere Auswahl.
+        </li>
+        <li>
+            <b>Terminierende Methoden:</b>
+            Geben keinen jQuery-Objektwert zurück,
+            sondern beispielsweise einen String.
+            Damit endet die jQuery-Verkettung.
+        </li>
+    </ul>
+
+    <h3>12. Mehrere Elemente mit each() bearbeiten</h3>
+
+    <p>
+        Viele jQuery-Methoden bearbeiten automatisch
+        alle Elemente einer Auswahl.
+        Wenn für jedes Element eigene Anweisungen
+        ausgeführt werden sollen, verwendet man each().
+    </p>
+
+    <pre>
+$("p").each(function() {
+    console.log("Absatz gefunden");
+});
+    </pre>
+
+    <p>
+        Die Funktion innerhalb von each()
+        wird für jedes ausgewählte Element
+        einmal ausgeführt.
+    </p>
+
+    <h3>13. Anonyme Funktionen</h3>
+
+    <p>
+        Eine anonyme Funktion ist eine Funktion
+        ohne eigenen Namen.
+        Sie wird häufig als Argument an
+        eine andere Funktion übergeben.
+    </p>
+
+    <pre>
+function() {
+    // Anweisungen
+}
+    </pre>
+
+    <p>
+        Bei each() wird eine solche Funktion
+        für jedes Element der Auswahl aufgerufen.
+    </p>
+
+    <h3>14. this und $(this)</h3>
+
+    <p>
+        Innerhalb einer normalen Callback-Funktion
+        von each() bezeichnet this das aktuelle
+        HTML-Element, das gerade bearbeitet wird.
+    </p>
+
+    <p>
+        this ist dabei ein normales DOM-Element.
+        Mit $(this) wird daraus ein jQuery-Objekt,
+        auf das jQuery-Methoden angewendet werden können.
+    </p>
+
+    <pre>
+$("p").each(function() {
+    $(this).addClass("wichtig");
+});
+    </pre>
+
+    <p>
+        In diesem Beispiel erhält jeder
+        ausgewählte Absatz die Klasse wichtig.
+    </p>
+
+    <h3>15. Wichtige jQuery-Methoden</h3>
+
+    <ul>
+        <li><b>addClass():</b> Fügt eine CSS-Klasse hinzu.</li>
+        <li><b>removeClass():</b> Entfernt eine CSS-Klasse.</li>
+        <li><b>attr():</b> Liest oder verändert ein HTML-Attribut.</li>
+        <li><b>append():</b> Fügt Inhalt am Ende eines Elements ein.</li>
+        <li><b>before():</b> Fügt Inhalt vor einem Element ein.</li>
+        <li><b>clone():</b> Erstellt eine Kopie eines Elements.</li>
+        <li><b>hide():</b> Blendet ein Element aus.</li>
+        <li><b>fadeOut():</b> Lässt ein Element langsam verschwinden.</li>
+    </ul>
+
+    <h3>16. Elemente kopieren und verändern</h3>
+
+    <p>
+        Mit clone() kann ein HTML-Element
+        einschließlich seines Inhalts kopiert werden.
+        Die Kopie kann danach verändert werden,
+        bevor sie in die Webseite eingefügt wird.
+    </p>
+
+    <pre>
+let kopie = $(".wichtig").first().clone();
+
+kopie.removeClass("wichtig");
+kopie.addClass("hinweis");
+    </pre>
+
+    <p>
+        Die CSS-Klassen bestimmen das Aussehen
+        des kopierten Elements.
+        Erst durch das Einfügen in die Webseite,
+        beispielsweise mit before(), wird
+        die Kopie dort sichtbar.
+    </p>
+
+    <h3>17. Entwicklertools im Browser</h3>
+
+    <p>
+        Mit den Entwicklertools eines Browsers
+        kann man den aktuellen Zustand der Webseite
+        untersuchen und JavaScript-Fehler finden.
+    </p>
+
+    <p>
+        Der ursprüngliche Seitenquelltext zeigt
+        nicht unbedingt alle Änderungen,
+        die JavaScript später am DOM vorgenommen hat.
+        Diese lassen sich in den Entwicklertools
+        untersuchen.
+    </p>
+
+    <hr>
+
+    <h3>Meine wichtigsten Erkenntnisse</h3>
+
+    <ul>
+        <li>Das DOM stellt HTML als Baumstruktur dar.</li>
+        <li>JavaScript kann HTML-Elemente auswählen und verändern.</li>
+        <li>jQuery vereinfacht viele Aufgaben bei der Webprogrammierung.</li>
+        <li>Mit Selektoren können bestimmte Elemente gefunden werden.</li>
+        <li>Viele jQuery-Methoden lassen sich miteinander verketten.</li>
+        <li>each() führt eine Funktion für jedes ausgewählte Element aus.</li>
+        <li>this bezeichnet bei each() das aktuelle DOM-Element.</li>
+        <li>Mit $(this) kann man jQuery-Methoden darauf anwenden.</li>
+    </ul>
+
+    <h3>Mein Lernrückblick</h3>
+
+    <p>
+        In dieser Vorlesung habe ich besser verstanden,
+        wie JavaScript auf die HTML-Struktur einer Webseite
+        zugreift. Besonders hilfreich fand ich die
+        Darstellung des DOM als Baum, weil ich dadurch
+        die Beziehungen zwischen den Elementen
+        besser nachvollziehen konnte.
+    </p>
+
+    <p>
+        Neu für mich war vor allem jQuery.
+        Ich habe gelernt, dass man damit viele
+        Änderungen an einer Webseite mit weniger
+        Code durchführen kann. Besonders wichtig
+        fand ich die Selektoren, die each()-Methode
+        und den Unterschied zwischen this und $(this).
+    </p>
+
+</details>
 
 
     <!-- VORLESUNG 7 -->
 
-    <details>
-        <summary>Vorlesung 7 – Events</summary>
+<details>
+    <summary>Vorlesung 7 – JavaScript Events, jQuery Events und Window-Objekt</summary>
 
-        <h3>Zusammenfassung</h3>
+    <h3>Vorlesung 7-1: JavaScript Events und jQuery Events</h3>
 
-        <p>
-            In dieser Vorlesung wurden
-            JavaScript- und jQuery-Events behandelt.
-        </p>
+    <h4>1. Ereignisgesteuerte Programmierung</h4>
+    <p>
+        Bei der ereignisgesteuerten Programmierung wird eine Funktion
+        ausgeführt, sobald ein bestimmtes Ereignis (Event) eintritt.
+        Solche Ereignisse entstehen zum Beispiel, wenn ein Benutzer
+        auf einen Button klickt, eine Taste drückt oder etwas in
+        ein Eingabefeld schreibt.
+    </p>
 
-        <h3>Wichtige Inhalte</h3>
+    <ul>
+        <li><b>Event:</b> Ein Ereignis, beispielsweise ein Mausklick.</li>
+        <li><b>Event-Handler:</b> Eine Funktion, die auf das Ereignis reagiert.</li>
+        <li><b>Event-Queue:</b> Eine Warteschlange für ausgelöste Ereignisse.</li>
+        <li><b>Event-Loop:</b> Prüft fortlaufend, ob Ereignisse verarbeitet werden müssen.</li>
+    </ul>
 
-        <ul>
-            <li>JavaScript-Events</li>
-            <li>jQuery-Events</li>
-        </ul>
+    <p>
+        Ereignisse werden in einer Warteschlange gesammelt und
+        anschließend verarbeitet. Dadurch kann eine Webseite
+        auf Benutzeraktionen reagieren.
+    </p>
 
-        <p>
-            Die ausführliche Zusammenfassung
-            ergänzen wir anhand der Vorlesungsfolien.
-        </p>
+    <h4>2. Events mit JavaScript behandeln</h4>
+    <p>
+        Damit eine Webseite auf eine Benutzeraktion reagieren kann,
+        sind drei Schritte notwendig:
+    </p>
+    <ol>
+        <li>Das gewünschte HTML-Element auswählen.</li>
+        <li>Festlegen, auf welches Ereignis reagiert werden soll.</li>
+        <li>Eine Funktion bestimmen, die beim Ereignis ausgeführt wird.</li>
+    </ol>
 
-    </details>
+    <p>
+        In JavaScript gibt es drei Möglichkeiten, Events zu behandeln:
+    </p>
+
+    <ul>
+        <li>
+            <b>HTML-Event-Handler:</b> Das Ereignis wird direkt
+            im HTML-Element angegeben, beispielsweise mit
+            <code>onclick</code>. Dabei werden HTML und JavaScript
+            vermischt.
+        </li>
+        <li>
+            <b>DOM-Event-Handler:</b> Das Ereignis wird im
+            JavaScript-Code zugewiesen, zum Beispiel mit
+            <code>element.onclick</code>. Hier kann pro Ereignis
+            nur eine Funktion direkt zugewiesen werden.
+        </li>
+        <li>
+            <b>DOM-Event-Listener:</b> Mit
+            <code>addEventListener()</code> können einem Element
+            mehrere Funktionen für dasselbe Ereignis zugeordnet
+            werden. Diese Methode wird empfohlen.
+        </li>
+    </ul>
+
+    <p><b>Beispiel für einen Event-Listener:</b></p>
+    <pre>
+const button = document.getElementById("meinButton");
+
+button.addEventListener("click", function() {
+    alert("Button wurde geklickt!");
+});
+    </pre>
+
+    <p>
+        Die Funktion wird erst ausgeführt, wenn der Benutzer
+        auf den Button klickt. Statt einer normalen Funktion
+        kann auch eine Arrow-Funktion verwendet werden.
+    </p>
+
+    <h4>3. Wichtige JavaScript-Events</h4>
+    <p>
+        Je nach Benutzeraktion werden unterschiedliche Ereignisse
+        ausgelöst.
+    </p>
+
+    <p><b>Mausereignisse:</b></p>
+    <ul>
+        <li><code>click</code> – ein Element wird angeklickt.</li>
+        <li><code>dblclick</code> – ein Element wird doppelt angeklickt.</li>
+        <li><code>mousedown</code> – eine Maustaste wird gedrückt.</li>
+        <li><code>mouseup</code> – eine Maustaste wird losgelassen.</li>
+        <li><code>mousemove</code> – die Maus wird bewegt.</li>
+        <li><code>mouseover</code> und <code>mouseout</code> – die Maus bewegt sich über ein Element oder verlässt es.</li>
+        <li><code>mouseenter</code> und <code>mouseleave</code> – die Maus betritt oder verlässt ein Element, ohne dass Bewegungen zwischen Kindelementen erneut zählen.</li>
+        <li><code>contextmenu</code> – das Kontextmenü wird aufgerufen.</li>
+    </ul>
+
+    <p><b>Tastaturereignisse:</b></p>
+    <ul>
+        <li><code>keydown</code> – eine Taste wird gedrückt.</li>
+        <li><code>keyup</code> – eine Taste wird losgelassen.</li>
+        <li><code>keypress</code> – älteres Ereignis für Tasteneingaben.</li>
+    </ul>
+
+    <p><b>Formularereignisse:</b></p>
+    <ul>
+        <li><code>input</code> – der Wert eines Eingabefeldes verändert sich.</li>
+        <li><code>change</code> – eine Änderung wird übernommen.</li>
+        <li><code>submit</code> – ein Formular wird abgeschickt.</li>
+        <li><code>reset</code> – ein Formular wird zurückgesetzt.</li>
+    </ul>
+
+    <p><b>Weitere Ereignisse:</b></p>
+    <ul>
+        <li><code>focus</code> und <code>blur</code> – ein Element erhält oder verliert den Fokus.</li>
+        <li><code>load</code> – eine Seite oder Ressource wurde geladen.</li>
+        <li><code>resize</code> – die Fenstergröße verändert sich.</li>
+        <li><code>scroll</code> – die Seite wird gescrollt.</li>
+        <li><code>DOMContentLoaded</code> – das HTML-Dokument wurde eingelesen.</li>
+    </ul>
+
+    <h4>4. Das Event-Objekt</h4>
+    <p>
+        Bei einem Ereignis stellt JavaScript zusätzliche Informationen
+        über das Event bereit. Diese Informationen befinden sich
+        im Event-Objekt.
+    </p>
+
+    <ul>
+        <li><code>type</code> – Art des Ereignisses.</li>
+        <li><code>target</code> – Element, auf dem das Ereignis ausgelöst wurde.</li>
+        <li><code>clientX</code> und <code>clientY</code> – Mausposition innerhalb des sichtbaren Browserbereichs.</li>
+        <li><code>screenX</code> und <code>screenY</code> – Mausposition auf dem Bildschirm.</li>
+        <li><code>button</code> – verwendete Maustaste.</li>
+        <li><code>altKey</code>, <code>ctrlKey</code> und <code>shiftKey</code> – zeigen an, ob bestimmte Zusatztasten gedrückt wurden.</li>
+        <li><code>relatedTarget</code> – ein weiteres beteiligtes Element bei bestimmten Mausereignissen.</li>
+    </ul>
+
+    <p>
+        Mit <code>preventDefault()</code> kann eine normale
+        Browseraktion verhindert werden, beispielsweise das
+        Abschicken eines Formulars. Mit
+        <code>stopPropagation()</code> kann die Weitergabe
+        eines Ereignisses an andere Elemente gestoppt werden.
+    </p>
+
+    <h4>5. Events mit jQuery</h4>
+    <p>
+        jQuery vereinfacht die Ereignisbehandlung.
+        HTML-Elemente können über Selektoren ausgewählt
+        und mit Funktionen verbunden werden.
+    </p>
+
+    <p><b>Beispiel:</b></p>
+    <pre>
+$("#meinButton").on("click", function() {
+    alert("Hallo!");
+});
+    </pre>
+
+    <p>
+        Mit <code>on()</code> wird ein Event-Handler registriert.
+        Die Methode <code>off()</code> kann einen registrierten
+        Event-Handler wieder entfernen.
+    </p>
+
+    <p>
+        Außerdem bietet jQuery Kurzschreibweisen für bestimmte
+        Ereignisse. Mit <code>$(document).ready()</code> kann
+        festgelegt werden, dass der Code erst ausgeführt wird,
+        wenn das HTML-Dokument bereit ist.
+    </p>
+
+    <p>
+        <b>Mein Lernfazit:</b> Ich habe gelernt, wie Webseiten
+        auf Benutzeraktionen reagieren. Besonders wichtig finde
+        ich <code>addEventListener()</code> und die
+        Event-Behandlung mit jQuery, weil sich damit
+        interaktive Webseiten erstellen lassen.
+    </p>
+
+    <hr>
+
+    <h3>Vorlesung 7-2: Window-Objekt und interaktive Navigation</h3>
+
+    <h4>1. Browser Object Model (BOM)</h4>
+    <p>
+        Neben dem Document Object Model (DOM) gibt es das
+        Browser Object Model (BOM). Während das DOM den
+        Inhalt einer Webseite beschreibt, ermöglicht das BOM
+        den Zugriff auf bestimmte Funktionen und Informationen
+        des Browsers.
+    </p>
+
+    <p>
+        Das wichtigste Objekt ist <code>window</code>.
+        Es repräsentiert ein Browserfenster beziehungsweise
+        einen Browsertab. Über dieses Objekt kann JavaScript
+        beispielsweise Fensterinformationen auslesen,
+        neue Fenster öffnen und die Navigation beeinflussen.
+    </p>
+
+    <h4>2. Wichtige Objekte des BOM</h4>
+    <ul>
+        <li>
+            <code>window</code> – stellt das aktuelle
+            Browserfenster dar.
+        </li>
+        <li>
+            <code>document</code> – ermöglicht den Zugriff
+            auf die HTML-Seite und ihre Elemente.
+        </li>
+        <li>
+            <code>location</code> – enthält Informationen
+            über die aktuelle URL und ermöglicht Navigation.
+        </li>
+        <li>
+            <code>history</code> – ermöglicht den Zugriff
+            auf den Browserverlauf, beispielsweise Vor- und Zurückgehen.
+        </li>
+        <li>
+            <code>navigator</code> – liefert Informationen
+            über den Browser.
+        </li>
+        <li>
+            <code>screen</code> – enthält Informationen
+            über den Bildschirm, beispielsweise seine Größe.
+        </li>
+    </ul>
+
+    <p>
+        Über das Window-Objekt sind auch weitere
+        Browserfunktionen und Web-APIs erreichbar.
+        Beispiele sind die Geolocation API und die Storage API.
+    </p>
+
+    <h4>3. Größe und Position eines Browserfensters</h4>
+    <p>
+        Mit JavaScript lassen sich die Größe und die Position
+        eines Fensters bestimmen.
+    </p>
+
+    <ul>
+        <li><code>innerWidth</code> – Breite des sichtbaren Inhaltsbereichs.</li>
+        <li><code>innerHeight</code> – Höhe des sichtbaren Inhaltsbereichs.</li>
+        <li><code>outerWidth</code> – gesamte Breite des Browserfensters.</li>
+        <li><code>outerHeight</code> – gesamte Höhe des Browserfensters.</li>
+        <li><code>screenX</code> und <code>screenY</code> – Position des Fensters auf dem Bildschirm.</li>
+        <li><code>scrollX</code> und <code>scrollY</code> – aktuelle Scrollposition.</li>
+    </ul>
+
+    <p>
+        Der sichtbare Bereich einer Webseite wird auch
+        <b>Viewport</b> genannt. Er ist nicht immer
+        genauso groß wie das gesamte HTML-Dokument,
+        da die Seite länger oder breiter sein kann.
+    </p>
+
+    <h4>4. Methoden zur Fenstersteuerung</h4>
+    <p>
+        Das Window-Objekt stellt verschiedene Methoden bereit:
+    </p>
+
+    <ul>
+        <li><code>window.open()</code> – öffnet ein neues Browserfenster oder einen Tab.</li>
+        <li><code>window.close()</code> – versucht, ein durch JavaScript geöffnetes Fenster zu schließen.</li>
+        <li><code>window.moveTo()</code> – verschiebt ein Fenster an eine bestimmte Position.</li>
+        <li><code>window.moveBy()</code> – verschiebt ein Fenster relativ zur aktuellen Position.</li>
+        <li><code>window.resizeTo()</code> – verändert die Fenstergröße auf bestimmte Werte.</li>
+        <li><code>window.resizeBy()</code> – verändert die Fenstergröße relativ zur bisherigen Größe.</li>
+        <li><code>window.scrollTo()</code> – scrollt zu einer bestimmten Position.</li>
+        <li><code>window.scrollBy()</code> – scrollt um einen bestimmten Abstand.</li>
+        <li><code>window.focus()</code> – versucht, das Fenster in den Vordergrund zu bringen.</li>
+        <li><code>window.blur()</code> – entfernt den Fokus vom Fenster.</li>
+    </ul>
+
+    <p>
+        Viele Funktionen zur Fenstersteuerung sind in
+        modernen Browsern aus Sicherheits- und
+        Benutzerfreundlichkeitsgründen eingeschränkt.
+    </p>
+
+    <h4>5. Neue Browserfenster öffnen</h4>
+    <p>
+        Mit <code>window.open()</code> kann eine Webseite
+        in einem neuen Fenster geöffnet werden.
+        Dabei können unter anderem eine URL, ein Fenstername
+        und zusätzliche Fenstereigenschaften angegeben werden.
+    </p>
+
+    <p><b>Beispiel:</b></p>
+    <pre>
+window.open(
+    "https://www.dhbw-mannheim.de",
+    "DHBW",
+    "width=600,height=400"
+);
+    </pre>
+
+    <p>
+        Zu den möglichen Einstellungen gehören
+        <code>width</code>, <code>height</code>,
+        <code>left</code>, <code>top</code>,
+        <code>resizable</code> und
+        <code>scrollbars</code>.
+        Ob diese Einstellungen tatsächlich berücksichtigt
+        werden, hängt vom Browser ab.
+    </p>
+
+    <h4>6. Fenstergröße und Dokumentgröße mit jQuery</h4>
+    <p>
+        Mit den jQuery-Methoden <code>width()</code>
+        und <code>height()</code> können die Maße
+        eines Fensters oder Dokuments ermittelt werden.
+    </p>
+
+    <pre>
+$(window).width();
+$(window).height();
+
+$(document).width();
+$(document).height();
+    </pre>
+
+    <p>
+        <b>Wichtig:</b> Die Fenstergröße beschreibt den
+        sichtbaren Bereich. Die Dokumentgröße beschreibt
+        dagegen die gesamte Webseite. Deshalb kann
+        die Dokumenthöhe größer sein als die Fensterhöhe.
+    </p>
+
+    <p>
+        Mit <code>width(300)</code> oder
+        <code>width("300px")</code> kann bei einem
+        geeigneten HTML-Element auch eine Breite gesetzt werden.
+    </p>
+
+    <h4>7. Interaktive Navigation mit jQuery</h4>
+    <p>
+        Lange Webseiten können schnell unübersichtlich werden.
+        Deshalb gibt es verschiedene Möglichkeiten,
+        Informationen platzsparend darzustellen.
+    </p>
+
+    <ul>
+        <li>
+            <b>Akkordeon:</b> Inhalte werden in aufklappbaren
+            Bereichen angezeigt.
+        </li>
+        <li>
+            <b>Tabbed Panels:</b> Inhalte werden über
+            verschiedene Registerkarten aufgerufen.
+        </li>
+        <li>
+            <b>Tooltips:</b> Zusätzliche Informationen
+            erscheinen beispielsweise beim Berühren
+            eines Elements mit der Maus.
+        </li>
+        <li>
+            <b>Sortierbare Tabellen:</b> Daten können
+            durch einen Klick auf eine Spaltenüberschrift
+            sortiert werden.
+        </li>
+    </ul>
+
+    <h4>8. Akkordeon mit jQuery</h4>
+    <p>
+        Ein Akkordeon ist eine Navigationsmöglichkeit,
+        bei der Inhalte zunächst verborgen sind.
+        Klickt man auf eine Überschrift, wird der
+        dazugehörige Inhalt angezeigt.
+        Dadurch bleibt die Webseite übersichtlich.
+    </p>
+
+    <p>
+        In der Vorlesung wurde dafür das
+        <b>jQuery-UI-Accordion-Plugin</b> behandelt.
+        Neben der jQuery-Bibliothek werden dafür
+        die Dateien <code>ui.core.js</code> und
+        <code>ui.accordion.js</code> verwendet.
+    </p>
+
+    <p>
+        Ein Akkordeon besteht aus einem Container,
+        mehreren Überschriften und den dazugehörigen
+        Inhaltsbereichen. Die Überschriften dienen
+        als anklickbare Register.
+    </p>
+
+    <p><b>Beispiel für die Aktivierung:</b></p>
+    <pre>
+$(document).ready(function() {
+    $("#akkordeon").accordion({
+        header: "h2"
+    });
+});
+    </pre>
+
+    <p>
+        Der Selektor <code>#akkordeon</code> wählt
+        den Container mit der entsprechenden ID aus.
+        Mit <code>accordion()</code> wird der
+        Akkordeon-Effekt aktiviert.
+        Die Einstellung <code>header: "h2"</code>
+        legt fest, dass die h2-Überschriften
+        als Register verwendet werden.
+    </p>
+
+    <p>
+        Mit der Option <code>active</code> kann
+        festgelegt werden, welcher Bereich zuerst
+        geöffnet sein soll. Über
+        <code>selectedClass</code> lässt sich
+        dem ausgewählten Register eine CSS-Klasse
+        zuweisen, damit es anders gestaltet werden kann.
+    </p>
+
+    <p>
+        <b>Bezug zu meinem Lernportfolio:</b>
+        Auch mein Lernportfolio verwendet aufklappbare
+        Bereiche. Ich nutze dafür die HTML-Elemente
+        <code>details</code> und <code>summary</code>.
+        Das Prinzip ist ähnlich wie beim jQuery-Akkordeon:
+        Inhalte werden erst angezeigt, wenn man den
+        jeweiligen Abschnitt öffnet.
+    </p>
+
+    <p>
+        <b>Mein Lernfazit:</b> In dieser Vorlesung habe
+        ich gelernt, wie JavaScript auf den Browser
+        zugreifen und Fensterinformationen auslesen kann.
+        Außerdem habe ich verstanden, wie sich lange
+        Webseiten mithilfe von jQuery und aufklappbaren
+        Bereichen benutzerfreundlicher gestalten lassen.
+    </p>
+
+</details>
+
 
 
     <!-- PRAKTISCHE ÜBUNGEN -->
 
-    <details>
-        <summary>Praktische Übungen</summary>
-
-        <h3>1. Bohnen zählen</h3>
-
-        <p>
-            Bei dieser Aufgabe habe ich
-            JavaScript-Funktionen verwendet,
-            um bestimmte Buchstaben
-            in einem Text zu zählen.
-        </p>
-
-        <h3>2. Währungsumrechner</h3>
-
-        <p>
-            Bei dieser Aufgabe habe ich
-            einen Währungsumrechner
-            mit HTML und JavaScript erstellt.
-        </p>
-
-        <h3>3. Sternchen-Dreieck</h3>
-
-        <p>
-            Bei dieser Aufgabe habe ich
-            mithilfe von Schleifen
-            ein Sternchen-Dreieck erzeugt.
-        </p>
-
-    </details>
+   
 
 
     <!-- GEWONNENE ERKENNTNISSE -->
@@ -1348,12 +4353,7 @@ person["vorname"]
             besser zu verstehen und anzuwenden.
         </p>
 
-        <p>
-            Hier ergänze ich später
-            meine persönlichen Erfahrungen
-            und Lernfortschritte.
-        </p>
-
+    
     </details>
 
 
